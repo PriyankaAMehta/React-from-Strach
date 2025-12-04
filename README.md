@@ -1,8 +1,8 @@
-steps to start 
+steps to start
 
 Each commit is designed to learn step by step towards REACT
 
-Step 1 : Basic to create a GIT  repo for learning.
+Step 1 : Basic to create a GIT repo for learning.
 
 1. create a folder and name it something like react series
 2. open the folder in the vs code
@@ -17,4 +17,7 @@ Step 1 : Basic to create a GIT  repo for learning.
 11. Copy the repository URL (HTTPS or SSH).
 12. Add it as a remote: git remote add origin https://github.com/username/repo.git
 13. Check the remote: git remote -v
-    
+
+STEP 2 :
+
+1. Create a hello world programme using html first. check the commit.
