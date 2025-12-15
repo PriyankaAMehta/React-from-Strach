@@ -21,3 +21,4 @@ Step 1 : Basic to create a GIT repo for learning.
 STEP 2 :
 
 1. Create a hello world programme using html first. check the commit.
+2. Create the same hello world programme using JS.
