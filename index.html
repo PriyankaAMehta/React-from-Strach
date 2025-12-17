@@ -8,9 +8,7 @@
     <title>React Series</title>
   </head>
   <body>
-    <div id="root">
-      <!-- <h1>Hello world</h1> -->
-    </div>
+    <div id="root"></div>
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -19,5 +17,17 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
+
+    <script>
+      /* create a heading tag in react. it takes 3 arguments. 1 - tag to create, 2 - an object, 3 - the content to be written inside the tag */
+      const heading = React.createElement("h1", {}, "Hello World");
+
+      /* create a root variable. this is where all react is to be stored. and we are storing in <div id="root"></div>*/
+      /* this is a DOM function so we are using ReactDOM to create root */
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      /* render method of the DOM renders the heading inside the root*/
+      root.render(heading);
+    </script>
   </body>
 </html>
