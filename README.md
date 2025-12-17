@@ -57,3 +57,7 @@ STEP 3 :
     Used to manage a single component or an entire application
     Rendered inside any chosen container element (like <div id="root">)
     In short, React works inside the DOM, not instead of it, and it gives developers control over where and how much of the application is powered by React. 19. use git checkout branch_name to switch to new branch. you can also use git switch branch_name if you are using newer git version.
+
+STEP 4 :
+
+1. check the branch app-ignition and check the app-ignition.txt file under Notes for important learnings for the branch app-ignition.
