@@ -47,3 +47,13 @@ STEP 3 :
 13. react.createElement takes 3 arguments : 1- tag to be created , 2- {} object with tag attributes like id, class etc. 3- childrens means something that goes into the tag like other tags or content.
 14. when creting multiple childrens using react.createElement, react will throw an error saying : Warning: Each child in a list should have a unique "key" prop.
     so for now ignore this waring but its an important understanding.
+15. creating element using react.createElement is very messy and can become complicated and hence JSX was created.
+16. The main branch covers the First Step in React
+17. The app-ignition branch is the next step in react. This is using the create-create app.
+18. React is a JavaScript library for building user interfaces. Unlike a full framework that controls the entire application, React is flexible and can be added only where it is needed. This means you do not have to build your whole website using React.
+    React can be mounted to any specific DOM element, most commonly a <div>, by selecting that element and rendering React components inside it. For example, you might use React to control just a small part of a page, such as a header, a form, or a dashboard section, while the rest of the page is built using plain HTML, CSS, or another technology.
+    Because of this flexibility, React can be:
+    Added to an existing website without rewriting everything
+    Used to manage a single component or an entire application
+    Rendered inside any chosen container element (like <div id="root">)
+    In short, React works inside the DOM, not instead of it, and it gives developers control over where and how much of the application is powered by React.
