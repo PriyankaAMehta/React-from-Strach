@@ -42,3 +42,6 @@ STEP 3 :
    ❌ Uncaught ReferenceError: react is not defined
    Variables in JS are case sensitive.
 10. Split the html,css,JS files. check the commits.
+11. Create elements with react.
+12. react.createElement("h1", {id: "heading"}, "hello world");
+13. react.createElement takes 3 arguments : 1- tag to be created , 2- {} object with tag attributes like id, class etc. 3- childrens means something that goes into the tag like other tags or content.
