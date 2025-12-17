@@ -45,3 +45,5 @@ STEP 3 :
 11. Create elements with react.
 12. react.createElement("h1", {id: "heading"}, "hello world");
 13. react.createElement takes 3 arguments : 1- tag to be created , 2- {} object with tag attributes like id, class etc. 3- childrens means something that goes into the tag like other tags or content.
+14. when creting multiple childrens using react.createElement, react will throw an error saying : Warning: Each child in a list should have a unique "key" prop.
+    so for now ignore this waring but its an important understanding.
