@@ -41,3 +41,4 @@ STEP 3 :
    So typing react in the console gives:
    ❌ Uncaught ReferenceError: react is not defined
    Variables in JS are case sensitive.
+10. Split the html,css,JS files. check the commits.
