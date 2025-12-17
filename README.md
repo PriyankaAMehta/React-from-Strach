@@ -56,4 +56,4 @@ STEP 3 :
     Added to an existing website without rewriting everything
     Used to manage a single component or an entire application
     Rendered inside any chosen container element (like <div id="root">)
-    In short, React works inside the DOM, not instead of it, and it gives developers control over where and how much of the application is powered by React.
+    In short, React works inside the DOM, not instead of it, and it gives developers control over where and how much of the application is powered by React. 19. use git checkout branch_name to switch to new branch. you can also use git switch branch_name if you are using newer git version.
