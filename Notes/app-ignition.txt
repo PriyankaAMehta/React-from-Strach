@@ -35,3 +35,64 @@ Comments
 Compress files on the server using Gzip or Brotli.
 Reduces download size.
 
+NPM
+1. NPM does not stand for Node Package Manager. NPM does not have a fullform.
+2. NPM manages packages, so behind the scences its a node package manager but it does not stand for  Node Package Manager.
+3. NPM is the standard repository for all the packages i.e almost all the packages are hosted in npm. 
+For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project.
+4. how to use npm in the project? - npm init 
+we can use npm init -y , it skips some things but we do not want to skip things so we do npm init.
+5. On pressing enter after the command npm init , it asks the following questions >
+package name: (namaste-react) 
+version: (1.0.0) 
+description: This is React from strach
+entry point: (App.js) 
+test command: jest
+git repository: https://github.com/PriyankaAMehta/React-from-Strach/tree/app/ignition
+keywords: React from strach, React Series, Learn React 
+author: Priyanka Mehta
+license: (ISC) 
+About to write to /Users/priyankamehta/Desktop/Namaste React/package.json:
+
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "This is React from strach",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PriyankaAMehta/React-from-Strach.git#app"
+  },
+  "keywords": [
+    "React",
+    "from",
+    "strach",
+    "React",
+    "Series",
+    "Learn",
+    "React"
+  ],
+  "author": "Priyanka Mehta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PriyankaAMehta/React-from-Strach/issues"
+  },
+  "homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme"
+}
+
+
+Is this OK? (yes) 
+
+6. package.json file gets added when npm is installed.
+
+What is package.json file which gets added when npm is installed or on npm init ?
+1.  It is the configuration for npm. 
+So initially right after the npm init is pressed or npm is installed in the project,
+package.json file contains all the above questions in the json format.
+
+2. Why do we need package.json ? 
+npm is the node package manager, It manages all the packages that we install in our project via npm.
+these packages are sometimes also known as dependencies.

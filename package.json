@@ -10,19 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/PriyankaAMehta/React-from-Strach.git#app"
   },
-  "keywords": [
-    "React",
-    "from",
-    "strach",
-    "React",
-    "Series",
-    "Learn",
-    "React"
-  ],
+  "keywords": [],
   "author": "Priyanka Mehta",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/PriyankaAMehta/React-from-Strach/issues"
   },
-  "homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme"
+  "homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme",
+  "devDependencies": {
+    "parcel": "^2.16.3"
+  }
 }
