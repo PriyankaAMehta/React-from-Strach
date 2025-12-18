@@ -1,0 +1,37 @@
+The project is ready for pushing to production is when we have done 
+1. Bundling
+2. Code Splitting
+3. Image Optimization
+4. Minification 
+5. Code compression 
+
+1. Bundling
+What it is: Combining many JavaScript (and CSS) files into one or a few files.
+Why: Browsers are slow when they make many network requests.
+Tools: Webpack, Vite, Parcel, Rollup.
+
+2. Code splitting 
+is the process of breaking your JavaScript code into smaller pieces (chunks), instead of sending one huge file to the browser.
+The browser then loads only the code it needs right now.
+Other parts are loaded later, on demand.
+
+Why do we need it?
+Imagine your app has 1000 lines of code, but the user only sees the homepage first.
+Without code splitting:
+Browser downloads all 1000 lines immediately → slow load
+With code splitting:
+Browser downloads only the homepage code → fast load
+Other code downloads only when needed (e.g., user clicks “Dashboard”)
+This improves performance and user experience.
+
+3. Minification
+What it is:
+Removing things that computers don’t need:
+Spaces
+New lines
+Comments
+
+4. Compression
+Compress files on the server using Gzip or Brotli.
+Reduces download size.
+

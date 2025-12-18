@@ -61,3 +61,4 @@ STEP 3 :
 STEP 4 :
 
 1. check the branch app-ignition and check the app-ignition.txt file under Notes for important learnings for the branch app-ignition.
+2. app-ignition branch helps to understand how to create your own create-react app which is production ready and not directly by using the command create-react app. This shows how much engineering goes behind the create-react app command used directly using command.
