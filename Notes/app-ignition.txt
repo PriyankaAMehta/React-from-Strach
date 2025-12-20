@@ -1,19 +1,20 @@
-The project is ready for pushing to production is when we have done 
+The project is ready for pushing to production is when we have done
+
 1. Bundling
 2. Code Splitting
 3. Image Optimization
-4. Minification 
-5. Code compression 
+4. Minification
+5. Code compression
 
-1. Bundling
-What it is: Combining many JavaScript (and CSS) files into one or a few files.
-Why: Browsers are slow when they make many network requests.
-Tools: Webpack, Vite, Parcel, Rollup.
+6. Bundling
+   What it is: Combining many JavaScript (and CSS) files into one or a few files.
+   Why: Browsers are slow when they make many network requests.
+   Tools: Webpack, Vite, Parcel, Rollup.
 
-2. Code splitting 
-is the process of breaking your JavaScript code into smaller pieces (chunks), instead of sending one huge file to the browser.
-The browser then loads only the code it needs right now.
-Other parts are loaded later, on demand.
+7. Code splitting
+   is the process of breaking your JavaScript code into smaller pieces (chunks), instead of sending one huge file to the browser.
+   The browser then loads only the code it needs right now.
+   Other parts are loaded later, on demand.
 
 Why do we need it?
 Imagine your app has 1000 lines of code, but the user only sees the homepage first.
@@ -25,125 +26,123 @@ Other code downloads only when needed (e.g., user clicks “Dashboard”)
 This improves performance and user experience.
 
 3. Minification
-What it is:
-Removing things that computers don’t need:
-Spaces
-New lines
-Comments
+   What it is:
+   Removing things that computers don’t need:
+   Spaces
+   New lines
+   Comments
 
 4. Compression
-Compress files on the server using Gzip or Brotli.
-Reduces download size.
+   Compress files on the server using Gzip or Brotli.
+   Reduces download size.
 
 NPM
-1. NPM does not stand for Node Package Manager. NPM does not have a fullform.
-2. NPM manages packages, so behind the scences its a node package manager but it does not stand for  Node Package Manager.
-3. NPM is the standard repository for all the packages i.e almost all the packages are hosted in npm. 
 
-For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project.
-4. how to use npm in the project? - npm init 
-we can use npm init -y , it skips some things but we do not want to skip things so we do npm init.
-5. On pressing enter after the command npm init , it asks the following questions >
-package name: (namaste-react) 
-version: (1.0.0) 
+1. NPM does not stand for Node Package Manager. NPM does not have a fullform.
+2. NPM manages packages, so behind the scences its a node package manager but it does not stand for Node Package Manager.
+3. NPM is the standard repository for all the packages i.e almost all the packages are hosted in npm.
+
+For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project. 4. how to use npm in the project? - npm init
+we can use npm init -y , it skips some things but we do not want to skip things so we do npm init. 5. On pressing enter after the command npm init , it asks the following questions >
+package name: (namaste-react)
+version: (1.0.0)
 description: This is React from strach
-entry point: (App.js) 
+entry point: (App.js)
 test command: jest
 git repository: https://github.com/PriyankaAMehta/React-from-Strach/tree/app/ignition
-keywords: React from strach, React Series, Learn React 
+keywords: React from strach, React Series, Learn React
 author: Priyanka Mehta
-license: (ISC) 
+license: (ISC)
 About to write to /Users/priyankamehta/Desktop/Namaste React/package.json:
 
 {
-  "name": "namaste-react",
-  "version": "1.0.0",
-  "description": "This is React from strach",
-  "main": "App.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/PriyankaAMehta/React-from-Strach.git#app"
-  },
-  "keywords": [
-    "React",
-    "from",
-    "strach",
-    "React",
-    "Series",
-    "Learn",
-    "React"
-  ],
-  "author": "Priyanka Mehta",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/PriyankaAMehta/React-from-Strach/issues"
-  },
-  "homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme"
+"name": "namaste-react",
+"version": "1.0.0",
+"description": "This is React from strach",
+"main": "App.js",
+"scripts": {
+"test": "jest"
+},
+"repository": {
+"type": "git",
+"url": "git+https://github.com/PriyankaAMehta/React-from-Strach.git#app"
+},
+"keywords": [
+"React",
+"from",
+"strach",
+"React",
+"Series",
+"Learn",
+"React"
+],
+"author": "Priyanka Mehta",
+"license": "ISC",
+"bugs": {
+"url": "https://github.com/PriyankaAMehta/React-from-Strach/issues"
+},
+"homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme"
 }
 
-
-Is this OK? (yes) 
+Is this OK? (yes)
 
 6. package.json file gets added when npm is installed.
 
 What is package.json file which gets added when npm is installed or on npm init ?
-1.  It is the configuration for npm. 
-So initially right after the npm init is pressed or npm is installed in the project,
-package.json file contains all the above questions in the json format.
 
-2. Why do we need package.json ? 
-npm is the node package manager, It manages all the packages that we install in our project via npm.
-these packages are sometimes also known as dependencies. 
-packages and dependencies are same.
-npm manages these dependencies, it takes care of what is the version of these pacakages or dependencies.
-so pacakage.json contains or takes care of the versions of all the packages installed via npm. 
+1.  It is the configuration for npm.
+    So initially right after the npm init is pressed or npm is installed in the project,
+    package.json file contains all the above questions in the json format.
 
-3. Installing dependencies or packages in project.
+2.  Why do we need package.json ?
+    npm is the node package manager, It manages all the packages that we install in our project via npm.
+    these packages are sometimes also known as dependencies.
+    packages and dependencies are same.
+    npm manages these dependencies, it takes care of what is the version of these pacakages or dependencies.
+    so pacakage.json contains or takes care of the versions of all the packages installed via npm.
 
-3.1 -- 1st dependency or package -- PARCEL 
+3.  Installing dependencies or packages in project.
+
+3.1 -- 1st dependency or package -- PARCEL
 BUNDLER - the project contains html, css , js etc files. BUNDLER bunldes all the files together, minifies the project, compresses it before moving our code to production.
-Some examples of bundlers used are > webpack, parcel, vite etc 
+Some examples of bundlers used are > webpack, parcel, vite etc
 
 Bundlers are packages. If we want to use a package in our
-   code, we have to use a package manager.
-   We use a package manager known as npm or yarn
+code, we have to use a package manager.
+We use a package manager known as npm or yarn
 
 create-react-app uses webpack as the bundler.
 for practice purpose we will now use parcel as bundler.
 
 How to install anz pacakage or dependency from npm?
-use npm install <pakage name> 
+use npm install <pakage name>
 
-There are 2 types of pacakages or dependencies: 
+There are 2 types of pacakages or dependencies:
+
 1. dev dependency : is the dependency or packages that we need during development.
 2. normal dependency : these are used during development and also during production.
 
 Since we need parcel for Bundling our app to get ready to go to production , we would onlz need it during development.
-so we use  -D while installing pacakages or dependencies from npm. so the command is npm install -D parcel.
+so we use -D while installing pacakages or dependencies from npm. so the command is npm install -D parcel.
 
 As soon as the PARCEL is installed via npm we have follwing files added :
-1. node_modules folder 
+
+1. node_modules folder
 2. pacakage/lock.json
 
 As pacakage.json is the configuration file for npma dn takes care of all the version of the packages or dependencies added
 via npm : the parcel package version is also added in the package.json file as devDependency:
 "devDependencies": {
-    "parcel": "^2.16.3"
-  }
+"parcel": "^2.16.3"
+}
 
 ^ - is the caret
-~ - is the tilde 
+~ - is the tilde
 
 2.3.1 version to 2.3.4 or 2.3.7 is minor version upgrade
 but from version 2.3.1 or 2.3.8 to 3.1.0 is a major udpdate.
 
-^ -  caret - if there is a minor udpdate in any of the packages , caret will automatically update the package.
+^ - caret - if there is a minor udpdate in any of the packages , caret will automatically update the package.
 ~ - tilde - if tilde is used, it will automatically install the major update.
 
 its always safe to use ^ - caret in most of the case because if teh major update is installed , it may break the app because of the other dependencies versions.
-
-
-
