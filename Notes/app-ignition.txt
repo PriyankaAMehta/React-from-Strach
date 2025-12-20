@@ -39,6 +39,7 @@ NPM
 1. NPM does not stand for Node Package Manager. NPM does not have a fullform.
 2. NPM manages packages, so behind the scences its a node package manager but it does not stand for  Node Package Manager.
 3. NPM is the standard repository for all the packages i.e almost all the packages are hosted in npm. 
+
 For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project.
 4. how to use npm in the project? - npm init 
 we can use npm init -y , it skips some things but we do not want to skip things so we do npm init.
@@ -95,4 +96,46 @@ package.json file contains all the above questions in the json format.
 
 2. Why do we need package.json ? 
 npm is the node package manager, It manages all the packages that we install in our project via npm.
-these packages are sometimes also known as dependencies.
+these packages are sometimes also known as dependencies. 
+packages and dependencies are same.
+npm manages these dependencies, it takes care of what is the version of these pacakages or dependencies.
+so pacakage.json contains or takes care of the versions of all the packages installed via npm. 
+
+3. Installing dependencies or packages in project.
+
+3.1 -- 1st dependency or package -- PARCEL 
+BUNDLER - the project contains html, css , js etc files. BUNDLER bunldes all the files together, minifies the project, compresses it before moving our code to production.
+Some examples of bundlers used are > webpack, parcel, vite etc 
+
+Bundlers are packages. If we want to use a package in our
+   code, we have to use a package manager.
+   We use a package manager known as npm or yarn
+
+create-react-app uses webpack as the bundler.
+for practice purpose we will now use parcel as bundler.
+
+How to install anz pacakage or dependency from npm?
+use npm install <pakage name> 
+
+There are 2 types of pacakages or dependencies: 
+1. dev dependency : is the dependency or packages that we need during development.
+2. normal dependency : these are used during development and also during production.
+
+Since we need parcel for Bundling our app to get ready to go to production , we would onlz need it during development.
+so we use  -D while installing pacakages or dependencies from npm. so the command is npm install -D parcel.
+
+As soon as the PARCEL is installed via npm we have follwing files added :
+1. node_modules folder 
+2. pacakage/lock.json
+
+As pacakage.json is the configuration file for npma dn takes care of all the version of the packages or dependencies added
+via npm : the parcel package version is also added in the package.json file as devDependency:
+"devDependencies": {
+    "parcel": "^2.16.3"
+  }
+
+^ - is the caret
+~ - is the tilde 
+
+
+
