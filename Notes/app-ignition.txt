@@ -137,5 +137,13 @@ via npm : the parcel package version is also added in the package.json file as d
 ^ - is the caret
 ~ - is the tilde 
 
+2.3.1 version to 2.3.4 or 2.3.7 is minor version upgrade
+but from version 2.3.1 or 2.3.8 to 3.1.0 is a major udpdate.
+
+^ -  caret - if there is a minor udpdate in any of the packages , caret will automatically update the package.
+~ - tilde - if tilde is used, it will automatically install the major update.
+
+its always safe to use ^ - caret in most of the case because if teh major update is installed , it may break the app because of the other dependencies versions.
+
 
 
