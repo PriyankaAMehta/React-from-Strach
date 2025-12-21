@@ -2,7 +2,6 @@
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "This is React from strach",
-  "main": "App.js",
   "scripts": {
     "test": "jest"
   },
@@ -19,5 +18,9 @@
   "homepage": "https://github.com/PriyankaAMehta/React-from-Strach/tree/app#readme",
   "devDependencies": {
     "parcel": "^2.16.3"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   }
 }

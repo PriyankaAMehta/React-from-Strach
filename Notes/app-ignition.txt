@@ -176,3 +176,32 @@ Should we push the node_modules file in the production or to the github?
 No, since its a very heavy file, It should not be pushed to production or github.
 
 Create a .gitignore file and put the node_modules in the file to avoid it be pushed to github.
+
+If package.json and package-lock.json files are present, node_modules can be re-generated via npm install command.
+
+There are 2 ways to get react into the project.
+
+1. CDN links
+2. NPM
+
+React is JS package or JS code at the end and it is hosted on NPM
+so we can get react via npm
+
+CDN IS NOT A PREFRED WAY TO GET REACT AND REACT_DOM INTO THE PROJECT.
+
+why CDN is not prefred way ?
+Using a CDN is generally not the preferred way to include libraries like React in modern projects.
+One reason is that network requests are costly. When we load React from a CDN (for example, from unpkg.com), the browser has to make an additional network request to download React at runtime. However, when we install React using npm, the package is already available locally inside the node_modules folder, so no extra network call is required during development or build time. This makes access faster and more reliable.
+Another important reason is version management. When using a CDN, if the React version changes (for example, from React 17 to React 18), we must manually update the CDN URL everywhere it is used. This can easily lead to version mismatches or errors. In contrast, when React is added as a dependency in package.json, npm handles versioning for us. Updating, locking, or rolling back versions becomes much easier and more consistent across the project.
+
+So we will install react as a package via npm
+
+How? - npm install react
+This installs the latest version of react.
+currently it is version 19.2.3
+
+We need 2 files react and react-dom, now we have just installed 1 i.e react
+
+Install ReactDOM via npm - npm install react-dom
+
+Now react and react-dom are there is the package.json, package-lock.json and node_modules folder.

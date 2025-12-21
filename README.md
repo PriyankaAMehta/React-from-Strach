@@ -24,7 +24,7 @@ STEP 2 :
 STEP 3 :
 
 1. getting react into the project via CDN
-2. there are 2 ways of getting/configuring react into the project. The first way is using the CDN and the other way is using the create react app method via react.org
+2. there are 2 ways of getting/configuring react into the project. The first way is using the CDN and the other way is via npm.
 3. CDN : Content Delivery Network. This is a website where the libraries are hosted like ex: where the react is hosted and we pull react into the project.
 4. react.development.js - this file contains all the metods or functions. react is nothing but the JS code. so this file contains all the functions.
 5. react-dom.development.js - This is the react library for dom operations. This is we need to modify the dom.
@@ -67,3 +67,6 @@ STEP 4 :
 5. On installing parcel, 2 files are generated - package-lock.json and node_modules.
 6. create .git-ignore file and put the node_modules in it.
 7. When cloning the project, node_modules can be installed with npm install command.
+
+8. CDN is not the prefered way to install react so install react from npm as a package.
+9. npm install react installs the react and npm install react-dom installs the react-dom.
