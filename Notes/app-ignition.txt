@@ -146,3 +146,33 @@ but from version 2.3.1 or 2.3.8 to 3.1.0 is a major udpdate.
 ~ - tilde - if tilde is used, it will automatically install the major update.
 
 its always safe to use ^ - caret in most of the case because if teh major update is installed , it may break the app because of the other dependencies versions.
+
+What is package-lock.json?
+This file keeps the track of exact version of the packages.
+
+If package.json specifies a dependency version like ^2.3.1 and a newer compatible minor or patch version (for example, 2.3.5) is available, the version in package.json remains ^2.3.1, while package-lock.json is updated to reflect the exact installed version (2.3.5).
+
+If package.json has a version like ^2.3.1, it means “any compatible version starting from 2.3.1 but below 3.0.0.”
+So, if a new version like 2.3.5 comes out, package.json still shows ^2.3.1 because that’s the allowed range.
+The package-lock.json, however, records the exact version actually installed (like 2.3.5) to make sure everyone gets the same version.
+
+What are the other things in package-lock.json?
+When we install Parcel using npm install parcel, npm creates or updates two important things: package-lock.json and the node_modules folder.
+
+The package-lock.json file contains the exact version of Parcel that was installed. In addition to Parcel itself, it also lists all the dependencies that Parcel requires to work, such as its transformers, optimizers, and other internal packages. It further includes the dependencies of those packages as well. In short, package-lock.json is a complete record of the entire dependency tree with exact versions, ensuring that the same versions are installed every time on any machine.
+
+What is node_module folder created when parcel is installed?
+At the same time, npm creates the node_modules folder. This folder contains the actual code for Parcel and all of its dependencies that are needed at runtime. Parcel cannot run without these files, so npm downloads them and places them inside node_modules.
+The reason the node_modules folder is created is that JavaScript projects do not bundle dependencies by default. Instead, npm installs the required packages locally so that the application and tools like Parcel can import and use them. The node_modules folder is not committed to Git because it can always be recreated using package.json and package-lock.json.
+
+In summary:
+package-lock.json records what exact versions of Parcel and its dependencies are installed.
+node_modules contains the actual installed files needed for Parcel to run.
+
+Is other only 1 package.json file in the whole project?
+No, every packet or dependency in the node_modules folder contains its own package.json file.
+
+Should we push the node_modules file in the production or to the github?
+No, since its a very heavy file, It should not be pushed to production or github.
+
+Create a .gitignore file and put the node_modules in the file to avoid it be pushed to github.

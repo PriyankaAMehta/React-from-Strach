@@ -64,3 +64,6 @@ STEP 4 :
 2. app-ignition branch helps to understand how to create your own create-react app which is production ready and not directly by using the command create-react app. This shows how much engineering goes behind the create-react app command used directly using command.
 3. Install npm for installing all the packages via : npm init. check what happens on installation in the NOTES FOLDER
 4. Install the first package : The Bundler : Parcel via: npm install -D parcel. check what happens on installation in the NOTES FOLDER, what is -D in the npm install -D parcel command.
+5. On installing parcel, 2 files are generated - package-lock.json and node_modules.
+6. create .git-ignore file and put the node_modules in it.
+7. When cloning the project, node_modules can be installed with npm install command.
