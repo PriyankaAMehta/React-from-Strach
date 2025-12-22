@@ -205,3 +205,40 @@ We need 2 files react and react-dom, now we have just installed 1 i.e react
 Install ReactDOM via npm - npm install react-dom
 
 Now react and react-dom are there is the package.json, package-lock.json and node_modules folder.
+
+now react and react-dom are installed, run this project using npx parcel index.html.
+will this work? NO , error - react is not defined as shown in the console.
+because earlier this worked with CDN links because react was coming from CDN links and now it does not work or shows error because the we have react and react-dom in our node_modules and we need to import it.
+
+now react and react-dom are imported from node_modules. Will this work? NO
+error ? -
+Build failed.
+
+@parcel/transformer-js: Browser scripts cannot have imports or exports.
+
+/Users/priyankamehta/Desktop/Namaste React/App.js:1:1
+
+> 1 | import React from "react";
+> | ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+    2 | import ReactDOM from "react-dom";
+    3 |
+
+/Users/priyankamehta/Desktop/Namaste React/index.html:22:1
+21 | -->
+
+> 22 | <script src="App.js"></script>
+> | ^ The environment was originally created here
+
+    23 |   </body>
+    24 | </html>
+
+Reason :
+
+<script src="App.js"></script> is treated as normal JavaScript in the browser and normal JS cannot have imports or exports.
+
+Solution:
+so add type="module" to the script. <script type="module" src="App.js"></script>. Now browser will treat this as module and not normal JS.
+
+Error : create-root is not a function.
+Soultion : import ReactDOM from "react-dom/client"; use /client.

@@ -1,24 +1,5 @@
-/* Creating the following structure using React
-<div id="parent">
-    <div id="child">
-        <h1></h1> 
-        <h2><h2>
-    </div>
-    <div id="child">
-        <h1></h1> 
-        <h2><h2>
-    </div>
-</div>
-*/
-/*
-react.createElement takes 3 arguments 
-: 1- tag to be created , 
-2- {} object with tag attributes like id, class etc. 
-3- childrens means something that goes into the tag like other tags or content.
-*/
-
-/* adding one more tag that means adding multiple childerns can be done using [] array i.e
-putting the childerns into []. */
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 const parent = React.createElement("div", { id: "parent" }, [
   React.createElement("div", { id: "child" }, [
