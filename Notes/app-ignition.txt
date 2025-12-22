@@ -284,4 +284,7 @@ suppose if we type last 2 versions in the https://browserslist.dev/, it covers a
 
 so if we give last 10 versions. it covers almost 97%.
 
-When do we use it ? if we have any website which needs to reach lot of people so it should have coverage of almost 90% and above such like the government websites
+When do we use it ? if we have any website which needs to reach lot of people so it should have coverage of almost 90% and above such like the government websites.
+we can also make our app work on like 90% in USA so like country wise.
+
+read this : https://github.com/browserslist/browserslist#query-composition
