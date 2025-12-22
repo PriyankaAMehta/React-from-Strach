@@ -10,6 +10,10 @@ const parent = React.createElement("div", { id: "parent" }, [
     React.createElement("h1", {}, "Hello Raj"),
     React.createElement("h2", {}, "Hello Anita"),
   ]),
+  React.createElement("div", { id: "child" }, [
+    React.createElement("h1", {}, "Hello Raj"),
+    React.createElement("h2", {}, "Hello Anita"),
+  ]),
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

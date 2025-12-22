@@ -70,3 +70,5 @@ STEP 4 :
 
 8. CDN is not the prefered way to install react so install react from npm as a package.
 9. npm install react installs the react and npm install react-dom installs the react-dom.
+10. add type="module"to <script type="module" src="App.js"></script> in index.html. import react and react-dom from node_module : import React from "react";
+    import ReactDOM from "react-dom/client";

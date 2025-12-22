@@ -242,3 +242,22 @@ so add type="module" to the script. <script type="module" src="App.js"></script>
 
 Error : create-root is not a function.
 Soultion : import ReactDOM from "react-dom/client"; use /client.
+
+What does parcel do to applications?
+
+1. Dev Build
+2. Local Server
+3. HMR - Hot Module Replacement
+4. File Watching algorithm written in C
+5. Caching - Faster build
+6. Minification
+7. Bundling
+8. Compressing
+9. Consistent hashing
+10. Code Splitting
+11. Differential Bundling - support for older browsers
+12. Dignostics and better error handling
+13. parcel gives a way to develop on HTTPS
+14. Tree Shaking Algorithm : suppose we have 100 of functions in the code but if we use just 5 - 10 functions them parcel will remove all of the unwanted code.
+
+Anything that can be regenrated should not be pushed to git and should be written in .gitignore file : .parcel-cache and dist should be in .gitignore.
