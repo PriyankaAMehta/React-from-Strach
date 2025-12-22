@@ -58,7 +58,7 @@ STEP 3 :
     Rendered inside any chosen container element (like <div id="root">)
     In short, React works inside the DOM, not instead of it, and it gives developers control over where and how much of the application is powered by React. 19. use git checkout branch_name to switch to new branch. you can also use git switch branch_name if you are using newer git version.
 
-STEP 4 :
+STEP 4 : BRANCH - APP-IGNITION
 
 1. check the branch app-ignition and check the app-ignition.txt file under Notes for important learnings for the branch app-ignition.
 2. app-ignition branch helps to understand how to create your own create-react app which is production ready and not directly by using the command create-react app. This shows how much engineering goes behind the create-react app command used directly using command.
@@ -72,3 +72,5 @@ STEP 4 :
 9. npm install react installs the react and npm install react-dom installs the react-dom.
 10. add type="module"to <script type="module" src="App.js"></script> in index.html. import react and react-dom from node_module : import React from "react";
     import ReactDOM from "react-dom/client";
+
+STEP 5 : check the branch APP-FOUNDATION
