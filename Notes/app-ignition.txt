@@ -261,3 +261,27 @@ What does parcel do to applications?
 14. Tree Shaking Algorithm : suppose we have 100 of functions in the code but if we use just 5 - 10 functions them parcel will remove all of the unwanted code.
 
 Anything that can be regenrated should not be pushed to git and should be written in .gitignore file : .parcel-cache and dist should be in .gitignore.
+
+The create-react-app contains all the above already in the project.
+
+How to make our project compatible for older versions of browsers?
+browsersList - The browserslist configuration already exists in node_modules, but we now need to explicitly define which browsers and versions our project should support.
+
+although browserlist is a npm package and already present in the node_modules, we need to configure it in package.json.
+
+"browserslist":[
+"last 10 chrome versions",
+"last 10 firefox versions"
+]
+
+but does it mean that our project will work in only the 2 listed browsers?
+No , it means that our app will definetly work in the above 2 listed browsers and it might or might not work in rest of the browsers.
+
+How did we understand what to write in the browserlists array ?
+https://browserslist.dev/ - gives the list of all the browsers and versions. type last 2 chrome versions and check.
+
+suppose if we type last 2 versions in the https://browserslist.dev/, it covers almost 79% coverage
+
+so if we give last 10 versions. it covers almost 97%.
+
+When do we use it ? if we have any website which needs to reach lot of people so it should have coverage of almost 90% and above such like the government websites
