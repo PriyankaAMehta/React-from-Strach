@@ -1,1 +1,20 @@
-1. REACT FUNDAMENTALS
+REACT FUNDAMENTALS
+
+1. Writing script to run the project instead of npx parcel index.html
+
+npx parcel index.html - is used to run the project where index.html is source file.
+but we can create script to start the project in dev mode and also build mode.
+
+How can we write the script ?
+we write the script in the package .json under scripts
+as :
+"scripts": {
+"test": "jest",
+"start": "parcel index.html",
+"build": "parcel build index.html"
+},
+
+Now how do we start the script?
+we use npm run start or npm run build to start the project
+
+Now if in a company we do not no how to start a project , check the package.json file and search for "scripts": {} and we will get teh command from here in any projects.
