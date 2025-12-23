@@ -2,19 +2,64 @@ REACT FUNDAMENTALS
 
 1. Writing script to run the project instead of npx parcel index.html
 
-npx parcel index.html - is used to run the project where index.html is source file.
-but we can create script to start the project in dev mode and also build mode.
+   npx parcel index.html - is used to run the project where index.html is source file.
+   but we can create script to start the project in dev mode and also build mode.
 
-How can we write the script ?
-we write the script in the package .json under scripts
-as :
-"scripts": {
-"test": "jest",
-"start": "parcel index.html",
-"build": "parcel build index.html"
-},
+   How can we write the script ?
+   we write the script in the package .json under scripts
+   as :
+   "scripts": {
+   "test": "jest",
+   "start": "parcel index.html",
+   "build": "parcel build index.html"
+   },
 
-Now how do we start the script?
-we use npm run start or npm run build to start the project
+   Now how do we start the script?
+   we use npm run start or npm run build to start the project
 
-Now if in a company we do not no how to start a project , check the package.json file and search for "scripts": {} and we will get teh command from here in any projects.
+   Now if in a company we do not no how to start a project , check the package.json file and search for "scripts": {} and we will get teh command from here in any projects.
+
+   npm run start is same as npm start
+   start is the npm keyword reserved for start
+
+2. JSX : writing the react.createElment("h1", {id: "heading"}, "this is h1") is a very complex and time consuming and hence facebook developers created JSX.
+   JSX was created by Facebook, with Jordan Walke being the main engineer behind it, as part of the React project.
+
+   JSX is HTML-like or XML-like syntax. JSX stands for JavaScript
+   XML. It's a syntax extension for JavaScript.
+   It is not a part of React. React apps can be built even
+   without JSX but the code will become very hard to read.
+   It is not HTML inside JavaScript.
+   JavaScript engine cannot understand JSX as it only
+   understands ECMAScript
+
+   JSX is not directly understood by browser , it gives syntax error. So the JSX code is transpilled in plain JavaScript or ES script. This transiplation is done by parcel package.
+
+   Parcel does not do everything itself and is also dependent on other dependencies or packages. It uses Babel package from transpillation.
+
+   How is JSX converted or transpilled?
+   JSX is first converted to react element(object) and babel is converting the JSX code to react element.
+
+3. What is BABEL ?
+   It is a JavaScript compiler. It converts JSX into react element.
+   The older browsers does not inderstand ES6 code so babel transpiles code so that the older browsers are compatible.
+
+4. If the browser can't understand JSX how is it still working?
+   This is because of Parcel because "Parcel is a Beast".
+   Before the code gets to JS Engine it is sent to Parcel and Transpiled there. Then after transpilation, the browser gets the code that it can understand.
+   PDF Viewer
+   Transpilation > Converting the code in such a format that the browsers can understand.
+   Parcel is like a manager who gives the responsibility of transpilation to a package called Babel.
+   Babel is a package that is a compiler/transpiler of JavaScript that is already present inside 'node-modules'. It takes JSX and converts it into the code that browsers understand, as soon as we write it and save the file. It is not created by Facebook.
+   Learn more about Babel on babeljs.io
+   JSX (transpiled by Babel) > React.createElement > ReactElement
+   → JS Object → HTML Element (render)
+
+5. JSX Atributes : In JSX attributes are in camelCase for ex: className, tabIndex etc
+
+6. Single line JSX and Multi line JSX
+   Single line JSX: const heading = <h1 className="heading">I am h1 tag</h1>
+   If multline is used, () should be used :
+   const heading = (<h1 className="heading">
+   I am h1 tag
+   </h1>);
