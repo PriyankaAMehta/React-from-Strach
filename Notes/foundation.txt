@@ -63,3 +63,28 @@ REACT FUNDAMENTALS
    const heading = (<h1 className="heading">
    I am h1 tag
    </h1>);
+
+7. React Components
+   There are 2 types of components : 1. Class Component - old way of writing code 2. Functional Component - lastest and standard way of writing code in react
+
+8. React Functional component
+   is just a normal JS function.
+   It should written with starting Capital letter. This way react understands that it is a react component
+   ex :
+   const HeadingComponet = () => {
+   return <h1>This is Heading component</h1>;
+   };
+   is same as
+   const HeadingComponet = () => (
+     <h1>This is Heading component</h1>;
+    );
+    How does the Babel understands that it is a component?
+    When wraped in <> with starting Capital letter it understands that it is a component.
+    import React from "react";
+    import ReactDOM from "react-dom/client";
+
+   const HeadingComponent = () => <h1>This is Heading component</h1>;
+
+   const root = ReactDOM.createRoot(document.getElementById("root"));
+
+   root.render(<HeadingComponent />);
