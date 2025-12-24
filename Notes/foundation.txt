@@ -156,13 +156,12 @@ REACT FUNDAMENTALS
 12. How to include component inside component ? <Title /> is same as <Title></Title>
 
          const Title = () => (
-            return <h1>This is Title 1 </h1>;
+             <h1>This is Title 1 </h1>;
             );
 
          const HeadingComponent = () => (
             <div id="container">
                <Title />
-               <h1>This is Heading component {elem}</h1>
-               {subheading}
+               <h1>This is Heading component </h1>
             </div>
             );
