@@ -73,4 +73,7 @@ STEP 4 : BRANCH - APP-IGNITION
 10. add type="module"to <script type="module" src="App.js"></script> in index.html. import react and react-dom from node_module : import React from "react";
     import ReactDOM from "react-dom/client";
 
-STEP 5 : check the branch APP-FOUNDATION
+STEP 5 :
+
+1. check the branch APP-FOUNDATION and app-foundation.txt under notes folder for components and {}. It has examples about what are components and {} with examples.
+2. check the branch APP-PROPS&CONFIGDRIVENUI branch and Notes/app-props&ConfigDrivenUI.txt for props and What is config driven UI.
