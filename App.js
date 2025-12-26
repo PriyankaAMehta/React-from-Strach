@@ -23,13 +23,16 @@ const Header = () => {
   );
 };
 
-const stylecard = {
-  backgroundColor: "#f0f0f0",
-};
+// single means it accepts the JS expression i.e any JS value and to have JS object we use another {}
 
 const RestaurantCard = () => {
   return (
-    <div className="res-card" style={stylecard}>
+    <div
+      className="res-card"
+      style={{
+        backgroundColor: "#f0f0f0",
+      }}
+    >
       <h3>Mehta Foods</h3>
     </div>
   );
