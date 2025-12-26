@@ -23,7 +23,7 @@ const Header = () => {
   );
 };
 
-// single means it accepts the JS expression i.e any JS value and to have JS object we use another {}
+// single {} means it accepts the JS expression i.e any JS value and to have JS object we use another {}.
 
 const RestaurantCard = () => {
   return (
@@ -33,7 +33,14 @@ const RestaurantCard = () => {
         backgroundColor: "#f0f0f0",
       }}
     >
+      <img
+        className="res-image"
+        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/0335dd45be555d0a4187255e57d2ca88"
+      />
       <h3>Mehta Foods</h3>
+      <h4>Pizza, Pasta, Italian</h4>
+      <h4>4.5 stars</h4>
+      <h4>38 minutes</h4>
     </div>
   );
 };

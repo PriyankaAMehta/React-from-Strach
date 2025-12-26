@@ -23,6 +23,16 @@
 }
 .res-card{
     width: 200px;
-    height: 300px;
-    border: 1px solid black;
+    height: 320px;
+    
+    padding: 5px;
+}
+.res-card:hover{
+border: 1px solid black;
+cursor: pointer;
+}
+    
+.res-image{
+    height: 50%;
+    width: 100%;
 }
