@@ -1,1 +1,71 @@
-This gives the learning about Props and Config Driven UI
+1. This gives the learning about Props and Config Driven UI
+
+2. This branch starts to develop the food delivery app.
+
+3. Planning of food delivery app or any application
+   3.1 should start with wireframe which makes it easier to develop frontend.
+   3.2 planning basic structure of components
+   Header
+
+   - Logo
+   - Nav Items
+
+     Body
+
+   - Search
+   - Restaurant container
+   - Restaurant cards
+
+     - Dish Name
+     - Image
+     - Restaurant Name
+     - Rating
+     - Cuisines
+     - Time to Deliver
+
+       Footer
+
+   - Copyright
+   - Links
+   - Contact
+
+4. CSS - FLEX
+   Flexbox is a layout model for arranging items (horizontally or vertically) within a container, in a flexible and responsive way.
+
+   Flexbox makes it easy to design a flexible and responsive layout, without using float or positioning.
+
+   HTML
+   <div class="container">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>  
+    <div>Item 4</div>
+    <div>Item 5</div>
+   </div>
+
+   CSS
+   .container {
+   display: flex;}
+
+   Flexbox must have a parent element with the display property set to flex or inline-flex.
+
+   Direct child elements of the flex container automatically becomes flex items.i.e all the Item 1 to Item 5 automatically becomes flex.
+
+   Flex Properties:
+   display - Must be set to flex or inline-flex
+   flex-direction - Sets the display-direction of flex items
+   flex-wrap - Specifies whether the flex items should wrap or not
+   flex-flow - Shorthand property for flex-direction and flex-wrap
+   justify-content - Aligns the flex items when they do not use all available space on the main-axis (horizontally)
+   align-items - Aligns the flex items when they do not use all available space on the cross-axis (vertically)
+   align-content - Aligns the flex lines when there is extra space in the cross axis and flex items wrap
+
+   The justify-content property has following values:
+   center : The center value aligns the flex items in the center of the container.
+   flex-start (default) : The flex-start value aligns the flex items at the beginning of the container (this is default)
+   flex-end : The flex-end value aligns the flex items at the end of the container.
+   space-around : value displays the flex items with space around them
+   space-between
+   space-evenly
+
+5. Whenever we need to reuse the same pice of code always create a new componet > for examaple : The restaurant card.
