@@ -23,11 +23,24 @@ const Header = () => {
   );
 };
 
+const stylecard = {
+  backgroundColor: "#f0f0f0",
+};
+
+const RestaurantCard = () => {
+  return (
+    <div className="res-card" style={stylecard}>
+      <h3>Mehta Foods</h3>
+    </div>
+  );
+};
 const Body = () => {
   return (
     <div className="body">
-      <div className="Search"></div>
-      <div className="res-container"></div>
+      <div className="Search">Search</div>
+      <div className="res-container">
+        <RestaurantCard></RestaurantCard>
+      </div>
     </div>
   );
 };
@@ -35,6 +48,7 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Header />
+      <Body />
     </div>
   );
 };

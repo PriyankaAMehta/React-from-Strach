@@ -69,3 +69,16 @@
    space-evenly
 
 5. Whenever we need to reuse the same pice of code always create a new componet > for examaple : The restaurant card.
+
+6. Inline css in JSX is given as:
+
+   1. first declared as a object.
+
+      const stylecard = {
+      backgroundColor: "#f0f0f0",
+      };
+
+   2. used that object inside {} as :
+      <div className="res-card" style={stylecard}>
+      <h3>Mehta Foods</h3>
+      </div>
