@@ -118,3 +118,98 @@
 
 8.  The above example, we hard coded it and we had 2 same restaurant card with Mehta Foods now If we want to display other cards with different names, menus, ratings, delivery times, etc., writing the same HTML again and again is not a good approach.
     Instead of hard-coding or duplicating the same HTML, we use React’s props concept. With props, we define one reusable card structure (HTML skeleton) and pass different data to it, such as names, menu items, ratings, and delivery times. This way, the same component can be reused to display multiple restaurant cards with different information.
+
+9.  What are Props in React? (Step-by-Step)
+    Step 1: Meaning of Props
+    Props (short for properties) are values that are passed from one React component to another.
+    They help components receive data from their parent component.
+
+Step 2: Props and Functional Components
+Functional components in React are just JavaScript functions.
+Just like functions receive arguments
+React components receive props
+So, props are the arguments passed to a functional component.
+
+Step 3: How React Handles Props
+When you pass data to a component:
+<RestaurantCard resName="Mehta Foods" cuisines="pizza, pasta, fries" />
+React does the following:
+Takes all the passed properties (resName, cuisines)
+Wraps them inside a single object
+Passes that object to the component as props
+
+Step 4: Props Are an Object
+Inside the component, props is an object.
+console.log(props);
+Output:
+{
+resName: "Mehta Foods",
+cuisines: "pizza, pasta, fries"
+}
+
+Step 5: Accessing Props
+Since props is an object, you access its values using dot notation:
+props.propertyName
+Example:
+props.resName
+props.cuisines
+
+Example Explained Step-by-Step
+Step 6: RestaurantCard Component
+const RestaurantCard = (props) => {
+console.log(props);
+
+        return (
+            <div
+            className="res-card"
+            style={{ backgroundColor: "#f0f0f0" }}
+            >
+            <img
+                className="res-image"
+                src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/0335dd45be555d0a4187255e57d2ca88"
+            />
+            <h3>{props.resName}</h3>
+            <h4>{props.cuisines}</h4>
+            <h4>4.5 stars</h4>
+            <h4>38 minutes</h4>
+            </div>
+        );
+        };
+        🔹 RestaurantCard is a functional component
+        🔹 props is received as a parameter
+        🔹 props.resName and props.cuisines display dynamic data
+
+Step 7: Passing Props from Parent Component
+
+const Body = () => {
+return (
+
+<div className="body">
+<div className="Search">Search</div>
+
+      <div className="res-container">
+        {/* Passing props to the component */}
+        <RestaurantCard
+          resName="Mehta Foods"
+          cuisines="pizza, pasta, fries"
+        />
+
+        <RestaurantCard
+          resName="Dominos"
+          cuisines="pizza, pasta, Garlic butter"
+        />
+      </div>
+    </div>
+
+);
+};
+🔹 Body is the parent component
+🔹 RestaurantCard is the child component
+🔹 Different values are passed as props to each card
+
+Summary
+Props are used to pass data to components
+Functional components receive props as function parameters
+React groups all props into a single object
+Props are accessed using props.propertyName
+Props make components reusable and dynamic
