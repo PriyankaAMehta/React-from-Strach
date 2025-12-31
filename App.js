@@ -25,8 +25,7 @@ const Header = () => {
 
 // single {} means it accepts the JS expression i.e any JS value and to have JS object we use another {}.
 
-const RestaurantCard = (props) => {
-  console.log(props);
+const RestaurantCard = ({ resName, cuisines, ratings, deliveryTime }) => {
   return (
     <div
       className="res-card"
@@ -38,10 +37,10 @@ const RestaurantCard = (props) => {
         className="res-image"
         src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/0335dd45be555d0a4187255e57d2ca88"
       />
-      <h3>{props.resName}</h3>
-      <h4>{props.cuisines}</h4>
-      <h4>{props.ratings}</h4>
-      <h4>{props.deliveryTime}</h4>
+      <h3>{resName}</h3>
+      <h4>{cuisines}</h4>
+      <h4>{ratings}</h4>
+      <h4>{deliveryTime}</h4>
     </div>
   );
 };
