@@ -252,3 +252,16 @@ Props make components reusable and dynamic
 13. What is Config Driven UI :
     It is a user Interface that is built and configured using a declaration configuration file or data structure, rather than be PREViewerdcoded.
     Config is the data coming from the api which keeps on changing according to different factors like user, location, etc.
+
+14. What is loudinary Image : Cloudinary is a cloud-based media management service used to store, optimize, transform, and deliver images and videos through a CDN (Content Delivery Network).
+    In large-scale applications, instead of storing images on your own servers, you upload them to Cloudinary, which then serves them efficiently to users worldwide.
+
+    How Cloudinary works :
+    Upload an image to Cloudinary
+    Cloudinary stores it in the cloud
+    The image is distributed via its CDN
+    The app loads the image using a Cloudinary URL
+    Example Cloudinary image URL:
+    https://res.cloudinary.com/<cloud-name>/image/upload/v123456/sample.jpg
+
+    So swiggy uses cloudinry as a CDN. so all their images are stored on cloudinary.
