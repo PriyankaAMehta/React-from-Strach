@@ -27,6 +27,14 @@ const Header = () => {
 
 const RestaurantCard = (props) => {
   const { resData } = props;
+
+  // destructring because we dont want to repeate resData.info again and again.
+  // ? optional chaining
+  // fom resData we will destructure cloudinaryImageId,name,cuisines, costForTwo,
+  const { cloudinaryImageId, name, cuisines, costForTwo, avgRatingString } =
+    resData?.info;
+  const { deliveryTime } = resData?.info.sla;
+
   return (
     <div
       className="res-card"
@@ -41,11 +49,11 @@ const RestaurantCard = (props) => {
           resData.info.cloudinaryImageId
         }
       />
-      <h3>{resData.info.name}</h3>
-      <h4>{resData.info.cuisines.join(", ")}</h4>
-      <h4>{resData.info.costForTwo}</h4>
-      <h4>{resData.info.avgRatingString}stars</h4>
-      <h4>{resData.info.sla.deliveryTime} minutes</h4>
+      <h3>{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{avgRatingString}stars</h4>
+      <h4>{deliveryTime} minutes</h4>
     </div>
   );
 };
@@ -795,14 +803,9 @@ const Body = () => {
     <div className="body">
       <div className="Search">Search</div>
       <div className="res-container">
-        <RestaurantCard resData={resList[0]} />
-        <RestaurantCard resData={resList[1]} />
-        <RestaurantCard resData={resList[2]} />
-        <RestaurantCard resData={resList[3]} />
-        <RestaurantCard resData={resList[4]} />
-        <RestaurantCard resData={resList[5]} />
-        <RestaurantCard resData={resList[6]} />
-        <RestaurantCard resData={resList[7]} />
+        {resList.map((restaurant) => (
+          <RestaurantCard resData={restaurant} />
+        ))}
       </div>
     </div>
   );
