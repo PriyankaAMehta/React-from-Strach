@@ -73,8 +73,17 @@ STEP 4 : BRANCH - APP-IGNITION
 10. add type="module"to <script type="module" src="App.js"></script> in index.html. import react and react-dom from node_module : import React from "react";
     import ReactDOM from "react-dom/client";
 
-STEP 5 :
+STEP 5 : branch APP-FOUNDATION
 
 1. check the branch APP-FOUNDATION and app-foundation.txt under notes folder for components and {}. It has examples about what are components and {} with examples.
 2. check the branch APP-PROPS&CONFIGDRIVENUI branch and Notes/app-props&ConfigDrivenUI.txt for props and What is config driven UI.
 3. Code the UI for food app beginning with header , restaturant cards.
+4. Use Config Driven UI concept. Used Swiggy API to showcase various restaurants using props, props destructuring.
+5. Look at the commits on this branch for various props concept.
+6. props in react are the properties. We use props to pass data from one component to other.
+7. functional components in react are nothing but the normal JavaScript functions and props are nothing but passing aruguments to to the functional component. Read more : (Notes/app-props&ConfigDrivenUI.txt).
+8. Websites like food delivery apps, ecommerce websites use Data Driven Config for developing the UI. Example shown using the live swiggy api.
+
+STEP 6 : branch APP-REACTHOOKS
+
+1.

@@ -265,3 +265,11 @@ Props make components reusable and dynamic
     https://res.cloudinary.com/<cloud-name>/image/upload/v123456/sample.jpg
 
     So swiggy uses cloudinry as a CDN. so all their images are stored on cloudinary.
+
+15. In React, always use a key instead of an array index when rendering lists — here’s why and how to do it correctly.
+    Why you should NOT use index as key
+    Using the array index as a key can cause UI bugs and performance issues, especially when the list:
+    Changes order (sorting, filtering)
+    Has items inserted or removed
+    Contains stateful components
+    React uses key to identify which item changed, not just where it is.
