@@ -235,3 +235,20 @@ Props make components reusable and dynamic
     </div>
     );
     };
+
+11. How does the data comes from backend ? In the form json.
+
+12. How to retrieve data (JSON) from Swiggy as an example:
+
+        1. Open the Swiggy food delivery app or website.
+        2. Open the browser’s Developer Tools and navigate to the Network tab.
+        3. In the Network tab, filter the requests by selecting XHR/Fetch.
+        4. From the filtered requests, click on an entry and open the Headers section to identify the API call that returns the restaurant list (JSON data).
+        5. Why you don’t see the full list in the v5 request. The initial v5 API call only returns the first batch of restaurants.
+            Swiggy loads more restaurants as you scroll down the page.
+            Each scroll triggers additional API calls with updated parameters (like offset, pageOffset, or nextOffset).
+            So the complete list is spread across multiple network requests, not one.
+
+13. What is Config Driven UI :
+    It is a user Interface that is built and configured using a declaration configuration file or data structure, rather than be PREViewerdcoded.
+    Config is the data coming from the api which keeps on changing according to different factors like user, location, etc.
