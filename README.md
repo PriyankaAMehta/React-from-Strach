@@ -86,4 +86,4 @@ STEP 5 : branch APP-FOUNDATION
 
 STEP 6 : branch APP-REACTHOOKS
 
-1.
+1. Restructure the app : create the folder structure and split the app into diffrent components.

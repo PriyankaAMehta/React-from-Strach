@@ -1,0 +1,22 @@
+React Hooks
+
+1. Restructuring of the app :
+   Generally we keep our code in the src folder, so create the src folder. Its the source code.
+   Then under the src create a folder with components folder and put all the components in this folder.
+   components file name should start with capital letters. It is recommended.
+   React does not have any specific way of maitaining the folder structure. You can arrange the folder structure anyhow but it is imporatant to maintain the industry structure because it becomes eaiser to read the code for anyone.
+2. Components
+   components needs to be exported so that they can be used in other components via importing
+   ex: export default Header; and we import it like import Header from "./components""
+
+3. Dont keep hard coded data in the component file
+   example :
+   1. the resList in the Body component
+   2. The hard coded link or string in the RestaurantCard : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+      <img
+      className="res-image"
+      src={
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+      resData.info.cloudinaryImageId
+      }
+   3. The hard coded link or string in the Header for logo : ttps://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=
