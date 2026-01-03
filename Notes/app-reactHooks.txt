@@ -11,6 +11,7 @@ React Hooks
 
 3. Dont keep hard coded data in the component file
    example :
+
    1. the resList in the Body component
    2. The hard coded link or string in the RestaurantCard : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
       <img
@@ -20,3 +21,23 @@ React Hooks
       resData.info.cloudinaryImageId
       }
    3. The hard coded link or string in the Header for logo : ttps://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=
+
+4. Where do we keep the hard coded links, strings, or any hard coded data?
+   A common practice is to keep it in separate file that is known as constant.js or config.js or utils.js.
+   The most coommon is to name such folder as utils. utils means utilities that will be used all accross the app.
+   This is not compulsory but it is a good industry practice.
+   Any variable name return in contanst.js should be in capital letters. Its not cumpulsory but an industry standard.
+
+5. There are 2 ways of exports :
+
+   1. using default : export default Body;
+      It is used when we need to export just 1 thing.
+   2. named export :
+      ex :
+      export const CDN_URL =
+      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
+   export const LOGO_URL =
+   "https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=";
+
+   we use named export when we have to export multiple things from the same file.
