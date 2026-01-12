@@ -93,3 +93,9 @@ React Hooks
             2. whatever we pass in the useState() becomes the default values for that variable.
                   as : const[ListOfRestaurants] = useState([]);
                      now the default value is an empty array that we passed to useState()
+
+         How to modify the data to be visible in the UI?
+            we should use function like:
+                 const[ListOfRestaurants, setListOfRestaurants] = useState([]);
+
+            so the modified data should be put in the setListOfRestaurants function. As in the logic to filter data should be put in this function or what should change should be put in this function.
