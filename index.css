@@ -41,3 +41,8 @@ cursor: pointer;
     display: flex;
     flex-wrap: wrap;
 }
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
+}

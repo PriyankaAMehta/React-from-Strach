@@ -1,43 +1,95 @@
 React Hooks
 
-1. Restructuring of the app :
-   Generally we keep our code in the src folder, so create the src folder. Its the source code.
-   Then under the src create a folder with components folder and put all the components in this folder.
-   components file name should start with capital letters. It is recommended.
-   React does not have any specific way of maitaining the folder structure. You can arrange the folder structure anyhow but it is imporatant to maintain the industry structure because it becomes eaiser to read the code for anyone.
-2. Components
-   components needs to be exported so that they can be used in other components via importing
-   ex: export default Header; and we import it like import Header from "./components""
+1.  Restructuring of the app :
+    Generally we keep our code in the src folder, so create the src folder. Its the source code.
+    Then under the src create a folder with components folder and put all the components in this folder.
+    components file name should start with capital letters. It is recommended.
+    React does not have any specific way of maitaining the folder structure. You can arrange the folder structure anyhow but it is imporatant to maintain the industry structure because it becomes eaiser to read the code for anyone.
+2.  Components
+    components needs to be exported so that they can be used in other components via importing
+    ex: export default Header; and we import it like import Header from "./components""
 
-3. Dont keep hard coded data in the component file
-   example :
+3.  Dont keep hard coded data in the component file
+    example :
 
-   1. the resList in the Body component
-   2. The hard coded link or string in the RestaurantCard : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
-      <img
-      className="res-image"
-      src={
-      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-      resData.info.cloudinaryImageId
-      }
-   3. The hard coded link or string in the Header for logo : ttps://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=
+    1. the resList in the Body component
+    2. The hard coded link or string in the RestaurantCard : "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
+       <img
+       className="res-image"
+       src={
+       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+       resData.info.cloudinaryImageId
+       }
+    3. The hard coded link or string in the Header for logo : ttps://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=
 
-4. Where do we keep the hard coded links, strings, or any hard coded data?
-   A common practice is to keep it in separate file that is known as constant.js or config.js or utils.js.
-   The most coommon is to name such folder as utils. utils means utilities that will be used all accross the app.
-   This is not compulsory but it is a good industry practice.
-   Any variable name return in contanst.js should be in capital letters. Its not cumpulsory but an industry standard.
+4.  Where do we keep the hard coded links, strings, or any hard coded data?
+    A common practice is to keep it in separate file that is known as constant.js or config.js or utils.js.
+    The most coommon is to name such folder as utils. utils means utilities that will be used all accross the app.
+    This is not compulsory but it is a good industry practice.
+    Any variable name return in contanst.js should be in capital letters. Its not cumpulsory but an industry standard.
 
-5. There are 2 ways of exports :
+5.  There are 2 ways of exports :
 
-   1. using default : export default Body;
-      It is used when we need to export just 1 thing.
-   2. named export :
-      ex :
-      export const CDN_URL =
-      "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+    1. using default : export default Body;
+       It is used when we need to export just 1 thing.
+    2. named export :
+       ex :
+       export const CDN_URL =
+       "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
-   export const LOGO_URL =
-   "https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=";
+    export const LOGO_URL =
+    "https://media.istockphoto.com/id/1435983029/vector/food-delivery-logo-images.jpg?s=612x612&w=0&k=20&c=HXPxcjOxUiW4pMW1u9E0k2dJYQOU37a_0qZAy3so8fY=";
 
-   we use named export when we have to export multiple things from the same file.
+    we use named export when we have to export multiple things from the same file.
+
+    we import named export like : import {LOGO_CDN } from "../utils/constants" . i.e we use {} for importing.
+
+6.  It is an industry standard that a component file should not have more than 100 lines of code.
+
+7.  onClick Event handler :
+    it expects a function {} or a fallback function {()=>{}}
+
+8.  The cards are coming because of the resList i.e all the data is stored in the resList.
+
+9.  Opttional chaining : ?. :
+
+    1. what does this means resData?.info ?
+       If resData is null or undefined, it will return undefined
+
+10. Developing a new button feature that filters the restaurants in terms of top rated restaurants, It will filter restaurants above 4 rating.
+
+    1. On click button development :
+       1. onClick event handler accepts a function in React or rather we can say that event handlers accepts the function.
+       2. The Onclick event now looks as : onClick = {()=>{}}
+       3. We are getting the restaurant cards based on the data from Swiggy API , i.e No of cards depends no of restaurants in that API.
+       4. In the initial we will just built a object with 2 restuarants and map that to display it. i.e we will map array of ListOfRestaurants [].
+       5. In the filter function this ListOfRestaurants is used to filter the restaurants.
+       6. after writing the filter function, the data is filtered but when clicked the button , The UI did not get updated.
+       7. So here we need to use react hooks.
+       8. So now instead of using :
+          let ListOfRestaurants = [] this variable we will use hooks to change the state and update UI
+
+11. React Hooks
+
+    1. React hooks are JS functions.
+    2. There are multiple react hooks but the 2 important react hooks are
+       1. useState()
+       2. useEffect()
+
+12. useState() Hook : used to generate poerful react variables.
+
+         How to use useState()?
+            1. we need to import useState as a named import from react
+
+         Why do we use useState()?
+            We use to create a state variable.
+            It maintains the state of the component.
+
+         How to create it ?
+            1. create using const as :
+               const[] = useState();
+                  So whenever we call useState(), It gives a state variable and we recive it in an array
+                  as : const[ListOfRestaurants] = useState();
+            2. whatever we pass in the useState() becomes the default values for that variable.
+                  as : const[ListOfRestaurants] = useState([]);
+                     now the default value is an empty array that we passed to useState()
