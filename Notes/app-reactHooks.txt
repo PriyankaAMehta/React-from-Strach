@@ -99,3 +99,9 @@ React Hooks
                  const[ListOfRestaurants, setListOfRestaurants] = useState([]);
 
             so the modified data should be put in the setListOfRestaurants function. As in the logic to filter data should be put in this function or what should change should be put in this function.
+
+13. Reconciliation Algorithm
+    1. React uses Reconciliation Algorithm. It is also called as React Fiber. React Fiber has come up in React 16 version
+    2. React creates virtual DOMs. Virtual DOM is representation of actual DOM.
+    3. The Diff Algorithm finds out the diffrence between the old virtual DOM and The updated Virtual DOM
+    4. This is React Reconciliation. a way of fiding the diff and updating the DOM
