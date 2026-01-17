@@ -1,0 +1,55 @@
+1.  Monolithic Architecture :
+
+    1. The whole project is in the same code base. i.e the UI, Backend, Database , authentication is all build in the same code base.
+
+2.  Micorservices Architecture :
+
+    1. In a microservices architecture, the application is divided into multiple small services.
+    2. Each service is responsible for one specific task.
+    3. For example:
+       One microservice handles the UI (frontend)
+       Another handles the backend/business logic
+       Another manages the database
+       Another handles authentication and authorization
+    4. Instead of building one large application, the entire project is split into smaller, independent services.
+    5. These services can be developed, deployed, and scaled separately.
+    6. Each microservice runs on its own port (for example: 1234, 3000, 8080).
+    7. All these services can be accessed through one domain name using routing or a gateway.
+    8. Example:
+       Suppose the UI service runs on port 1234
+       It can be accessed as:
+       reactseries.com:1234
+    9. These ports can be mapped to domain name as :
+       reactseries.com/api : so all the backend can be deployed on the same url
+       reactseries.com/auth
+       reactseries.com/ui
+    10. How these services interact : the make calls to apis . for example /ui api wants to interact with backend , it makes a call to backend i.e /api.
+
+3.  How react makes a API call?
+
+    1.  Make the API Call When the Page Loads : Page Loads --> API Call --> Renders
+
+                 In this approach, the API call is made as soon as the page loads.
+                 The page waits for the API to return data before it is fully displayed.
+
+                 Example:
+                 If the API takes 500 milliseconds to fetch the data,
+                 The user will see the complete page after 500 milliseconds.
+                 More Explanation
+
+                 How This Works:
+                 When the page loads, the browser sends a request to the API.
+                 The API processes the request and sends back the data.
+                 Once the data is received, the page renders with all the content.
+
+    2.  Load the Page First, Then Make the API Call :  
+        Page Loads --> Render the UI --> API Call --> As soon as data comes from API , we popullate the UI or rerender the UI
+
+                    In this approach, the page loads immediately without waiting for the API response.
+                    After the page is visible, the API call is made in the background.
+                    Once the data is received, the page updates automatically.
+
+                    How This Works:
+                    The UI is rendered first (often with empty data or placeholders).
+                    The API call is triggered using tools like useEffect in React.
+                    When the API response arrives, the UI re-renders with the actual data.
