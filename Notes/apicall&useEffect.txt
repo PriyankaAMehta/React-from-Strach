@@ -53,3 +53,14 @@
                     The UI is rendered first (often with empty data or placeholders).
                     The API call is triggered using tools like useEffect in React.
                     When the API response arrives, the UI re-renders with the actual data.
+
+4.  useEffect Hook :
+
+    1. It should be imported via react library.
+    2. Hooks are nothing but the functions.
+
+    Syntax:
+    useEffect(()=>{}, []) : it accepts 2 arguments: a callback function and a dependency array.
+
+    When is the useEffect callback function is called?
+    After the component is rendered.

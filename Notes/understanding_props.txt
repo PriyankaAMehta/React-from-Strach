@@ -1,0 +1,137 @@
+1.  what are props ?
+
+    --> Props are short form of properties.
+
+    --> Props are values that are passed from one React component to another.
+
+    --> They help components receive data from their parent component.
+
+2.  Props and Functional Components :
+
+    --> Functional components in React are just JavaScript functions.
+
+    --> Just like functions receive arguments, React components receive props.
+
+    --> So, props are the arguments passed to a functional component.
+
+    --> Props are read-only in child components
+
+3.  Example :
+
+    1. Function :
+
+    function greet(name, age) { --> arguments --> props
+    return `Hello ${name}, age ${age}`;
+    }
+
+    greet("Alice", 25); --> arguments recieved by function. --> props received by component
+    // Arguments: name, age
+
+    2. React passing props from parent component to child component
+
+    Parent or component 1 :
+
+    CARD COMPONENT :
+
+    function Card(props) {
+    return (
+    <div>
+    <h1>{props.name}</h1>
+    <p>Age: {props.age}</p>
+    </div>
+    );
+    }
+
+    Component 2 or Child Component :
+
+        APP COMPONENT WHERE THE CARD COMPONENT IS used
+
+        <Card name="Alice" age={25} />
+        // Props: name, age
+
+4.  React takes all passed properties and wraps them inside a single object
+
+    {name : Alice ,
+    age: 25 }
+
+    accessing props : since props are passed as objects
+
+    props.name = Alice
+    props.age = 25
+
+5.  Props is a JavaScript object with properties as keys and passed values as
+    values. You can inspect it with console.log(props)
+
+6.  Destructuring props on the fly :
+
+    Instead of passing props as below :
+
+    function Card(props) {
+    return (
+    <div>
+    <h1>{props.name}</h1>
+    <p>Age: {props.age}</p>
+    </div>
+    );
+    }
+
+    We can also destructure the props as
+
+    function Card({name, age}) {
+    return (
+    <div>
+    <h1>{name}</h1>
+    <p>Age: {age}</p>
+    </div>
+    );
+    }
+
+    OR can be written as :
+
+    function Card(props) {
+    const {name, age} = props;
+    return (
+    <div>
+    <h1>{name}</h1>
+    <p>Age: {age}</p>
+    </div>
+    );
+    }
+
+7.  In real world, the data comes in form of JSON object.
+
+            resobj = {
+                info : {
+                    name:Alice,
+                    age:25
+                    }
+                }
+
+    - Just for example the json taken is a short.
+
+    function Card(props) {
+    const {resData} = props;
+    return (
+    <div>
+    <h1>{resData.info.name}</h1>
+    <p>Age: {resData.info.age}</p>
+    </div>
+    );
+    }
+
+    <Card resData = {resObj} />
+
+8.  We can optimize further as :
+
+        function Card(props) {
+            const {resData} = props;
+            // resData.? --> ? is the optional chaining
+            const {name, age} = resData?.info
+            return (
+
+            <div>
+            <h1>{name}</h1>
+            <p>Age: {age}</p>
+            </div>
+            );
+        }

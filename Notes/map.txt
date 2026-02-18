@@ -1,0 +1,72 @@
+1.  map function : Use when: You want to create a NEW array by transforming each item
+
+2.  Example 1 :
+
+    let numbers = [1, 2, 3];
+
+    let doubled = numbers.map(num => num \* 2);
+
+    console.log(doubled); // [2, 4, 6]
+    console.log(numbers); // [1, 2, 3] (original unchanged)
+
+3.  map function Always returns an array (even if you don't need it)
+
+4.  Example 2 : Get array of just the names.
+
+        let users = [
+
+    {name: "John", age: 25},
+    {name: "Sarah", age: 30}
+
+        ];
+
+    let names = users.map((user) => user.name);
+    console.log(names); // ["John", "Sarah"]
+
+5.  React Example :
+
+        let users = [{name: "John"}, {name: "Sarah"}];
+
+        return (
+            <div>
+                {users.map(user => (
+                    <p>{user.name}</p>
+                ))}
+            </div>
+        );
+
+6.  Example 3:
+
+        function App() {
+
+            let fruits = ["Apple", "Banana", "Orange"];
+
+            return (
+                <div>
+                {fruits.map((fruit) => {
+                    return <p>{fruit}</p>;
+                })}
+                </div>
+            );
+        }
+
+    What this creates:
+
+            <div>
+            <p>Apple</p>
+            <p>Banana</p>
+            <p>Orange</p>
+            </div>
+
+7.  Exaple 4 : Display each name of res
+
+        let restaurants = [
+            { name: "Pizza Place" },
+            { name: "Burger Shop" },
+            { name: "Sushi Bar" }
+        ];
+
+    let names = restaurants.map((resname) => return{
+    <p>resname.name</p>
+    }
+    )

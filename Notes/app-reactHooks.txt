@@ -32,6 +32,7 @@ React Hooks
 
     1. using default : export default Body;
        It is used when we need to export just 1 thing.
+       
     2. named export :
        ex :
        export const CDN_URL =

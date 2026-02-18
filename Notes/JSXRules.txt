@@ -1,0 +1,5 @@
+1. class is written as className.
+
+2. JSX is always uses camelCase.
+
+3. All the JS is written inside {} in JSX.

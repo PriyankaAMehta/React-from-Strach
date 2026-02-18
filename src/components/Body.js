@@ -5,6 +5,8 @@ import { useState } from "react";
 
 const Body = () => {
   const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
+
+  useEffect(() => {}, []);
   return (
     <div className="body">
       <div className="filter">

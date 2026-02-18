@@ -1,0 +1,46 @@
+1. Destructuring
+
+  --> Destructuring is a way to extract values from objects and arrays 
+      into variables.
+
+OBJECTS :
+
+2. OLD WAY :
+
+    let person = {
+        name: "John",
+        age: 25,
+        city: "New York"
+    };
+
+    let name = person.name;
+    let age = person.age;
+    let city = person.city;
+
+3. NEW WAY : 
+
+    let person = {
+        name: "John",
+        age: 25,
+        city: "New York"
+    };
+
+    let { name, age, city } = person;
+
+    console.log(name);  // "John"
+    console.log(age);   // 25
+    console.log(city);  // "New York"
+
+ARRAYS :
+
+1. OLD WAY :
+
+    let colors = ["red", "green", "blue"];
+
+    let first = colors[0];
+    let second = colors[1];
+    let third = colors[2];
+
+2. NEW WAY :
+
+   let [first, second, third] = colors;
