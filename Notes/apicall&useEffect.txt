@@ -56,11 +56,34 @@
 
 4.  useEffect Hook :
 
-    1. It should be imported via react library.
-    2. Hooks are nothing but the functions.
+    1. What are hooks in React - hooks are nothing but functions
 
-    Syntax:
-    useEffect(()=>{}, []) : it accepts 2 arguments: a callback function and a dependency array.
+    2. It should be imported via react library.
+
+    3. Syntax:
+       useEffect(()=>{}, []) : it accepts 2 arguments: a callback function and a dependency array.
 
     When is the useEffect callback function is called?
     After the component is rendered.
+
+5.  When will the useEffect hook be called in following example :
+
+    Example :
+
+        import React, { useEffect } from "react";
+
+        function App() {
+
+
+        useEffect(() => {
+            console.log("useEffect called");
+        }, []);
+
+        console.log("Body called");
+
+        return <h1>Hello</h1>;
+        }
+
+        export default App;
+
+    --> first Body called will be called and then "useEffect called" will be called.

@@ -2,11 +2,18 @@ import React from "react";
 import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mokData";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const Body = () => {
   const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
 
-  useEffect(() => {}, []);
+  //1st argument is call back function and 2nd is the dependency array.
+  useEffect(() => {
+    console.log("useEffect called");
+  }, []);
+
+  console.log("body called");
+
   return (
     <div className="body">
       <div className="filter">

@@ -77,7 +77,7 @@ React Hooks
        1. useState()
        2. useEffect()
 
-12. useState() Hook : used to generate poerful react variables.
+12. useState() Hook : used to generate powerful react variables.
 
          How to use useState()?
             1. we need to import useState as a named import from react
@@ -106,3 +106,5 @@ React Hooks
     2. React creates virtual DOMs. Virtual DOM is representation of actual DOM.
     3. The Diff Algorithm finds out the diffrence between the old virtual DOM and The updated Virtual DOM
     4. This is React Reconciliation. a way of fiding the diff and updating the DOM
+
+14. React is good at dom manipulation. but the react optimization, bundling and all is done by web pack like parcel.

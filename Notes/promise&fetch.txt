@@ -1,0 +1,199 @@
+1.  What is fetch()?
+    --> Its a web API given by the browser.
+
+2.  What does fetch () do?
+    --> used to fetch data from server.
+
+3.  Why do we use promise?
+    -->When you ask fetch() to go get data from a server, it takes time —
+    maybe 1 second, maybe 3 seconds. JavaScript does NOT wait.
+    It keeps running the next lines of code.
+
+    -->If JavaScript waited for line 2 to finish before moving on, your entire webpage would freeze for 3 seconds. That's a terrible experience.
+    So JavaScript says: "I won't wait. I'll move on and come back when it's done."
+    This is called asynchronous behavior.
+
+4.  JavaScript IS synchronous by natureJavaScript is single-threaded and synchronous at its core. This means:
+    It has one single thread (one worker)
+    It executes code line by line, top to bottom
+    It does not move to the next line until the current one is done.
+
+5.  If JS is synchronous, how does async behavior even happen?
+
+    Here is the truth: **JavaScript doesn't do async alone. The Browser helps it.**
+
+    Remember we said the browser gives JavaScript extra tools? This is where that matters.
+
+    When JavaScript hits something that takes time — like `fetch()`, `setTimeOut()` — it hands that job over to the **browser** and says:
+
+    > _"Hey browser, you handle this. I'll keep running my other code. Let me know when it's done."_
+
+    So the **browser** goes and fetches the data in the background while **JavaScript keeps running** the rest of the code.
+
+    ***
+
+    ## The full picture — How it actually works
+
+    There are 3 key parts working together:
+
+    1. Call Stack → Where JS executes code line by line (JS engine)
+    2. Web APIs → Where the browser handles slow tasks (fetch, setTimeout etc.)
+    3. Callback Queue → Where results wait to be given back to JS
+
+    Here is what happens step by step when you call `fetch()`:
+
+    Step 1: JS sees fetch() in the Call Stack
+    Step 2: JS says "I can't wait for this" and hands it to the Browser (Web API)
+    Step 3: JS continues running the rest of the code
+    Step 4: Browser finishes fetching in the background
+    Step 5: Browser puts the result in the Callback Queue
+    Step 6: When JS is free (Call Stack is empty), it picks up the result
+
+    This system is called the Event Loop — it is what constantly checks "is the Call Stack empty? okay then bring in the next result from the queue."
+
+6.  What is promise?
+
+7.  --> When you request data from a server, it takes time. Could be 1 second, could be 5 seconds. You don't know.
+
+    --> So JavaScript does this:
+
+            You request data → JS hands it to the browser → JS keeps running other code
+
+        →  Browser fetches in background  →  Data arrives later
+
+8.  how do you receive that data when it finally arrives?
+    --> The answer is a Promise.
+
+9.  What is a Promise?
+
+    When you call an API, JavaScript immediately gives you back a Promise object as a placeholder — saying:
+
+    "I don't have the real data yet. But hold this Promise object. When the data arrives, I'll fill it in."
+
+10. 3 States of a Promise
+
+    Every Promise is always in one of these 3 states:
+
+    1. Pending → Request is still going on. Waiting for response.
+
+    2. Fulfilled → Request succeeded. Data has arrived.
+
+    3. Rejected → Request failed. Something went wrong.
+
+    And it only moves ONE way:
+
+        Pending  ──→  Fulfilled  (success)
+                ──→  Rejected   (failure)
+        Once it becomes Fulfilled or Rejected, it never changes again.
+
+11. When you call fetch(), it already returns a Promise behind the scenes. Someone already wrote the new Promise() code inside fetch() for you.
+    So you will almost never write new Promise() yourself in real life.
+    fetch() → returns a Promise → you handle it with .then() and .catch().
+
+12. How you use a Promise — The only 3 methods you need.
+
+    .then() → runs when data arrives successfully (Fulfilled)
+    .catch() → runs when something goes wrong (Rejected)
+    .finally() → ALWAYS runs no matter what
+
+13. Example :
+
+    fetch("URL here")
+
+    .then(function(response) {
+    return response.json(); // Step 1 — open the raw response
+    })
+
+    .then(function(data) {
+    console.log(data); // Step 2 — use the actual data
+    })
+
+    .catch(function(error) {
+    console.log(error); // If anything failed
+    })
+
+    .finally(function() {
+    console.log("Done!"); // Always runs
+    });
+
+---
+
+## Why always two `.then()` calls?
+
+    This is the most confusing part. Here is the simple answer:
+
+    When the server sends data back, it arrives in **raw format** — the browser has not read it yet. You need to call `.json()` to convert it into readable JavaScript.
+
+First .then() → raw response arrives → you open it with .json()
+Second .then() → actual readable data → now you can use it
+
+Think of it like:
+
+Courier arrives at door → you are handed a sealed box (first .then)
+You open the box → now you can see what is inside (second .then)
+
+14. EXAMPLE :
+
+    console.log("Step 1 — Sending request...");
+
+        fetch("https://jsonplaceholder.typicode.com/users/1")
+
+        .then(function(response) {
+            console.log("Step 2 — Raw response arrived. Opening it...");
+            return response.json();
+        })
+
+        .then(function(user) {
+            console.log("Step 3 — Got the actual user data!");
+            console.log("Name  : " + user.name);
+            console.log("Email : " + user.email);
+            console.log("Phone : " + user.phone);
+            console.log("City  : " + user.address.city);
+        })
+
+        .catch(function(error) {
+            console.log("Something went wrong: " + error);
+        })
+
+        .finally(function() {
+            console.log("Step 4 — Request is complete.");
+        });
+
+        console.log("This runs IMMEDIATELY — JS did not wait for the data!");
+        ```
+
+        ---
+
+        ## What you will see in the console
+        ```
+        Step 1 — Sending request...
+        This runs IMMEDIATELY — JS did not wait for the data!
+        Step 2 — Raw response arrived. Opening it...
+        Step 3 — Got the actual user data!
+        Name  : Leanne Graham
+        Email : Sincere@april.biz
+        Phone : 1-770-736-8031 x56442
+        City  : Gwenborough
+        Step 4 — Request is complete.
+
+
+        ---
+
+        ## Notice something very important in the output
+
+        The line:
+
+        This runs IMMEDIATELY — JS did not wait for the data!
+
+        What the data actually looks like?
+
+            When the server sends back the user, it looks like this — a JavaScript object:
+            js{
+            id: 1,
+            name: "Leanne Graham",
+            email: "Sincere@april.biz",
+            phone: "1-770-736-8031 x56442",
+            address: {
+                city: "Gwenborough"
+            }
+            }

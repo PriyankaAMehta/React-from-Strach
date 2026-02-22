@@ -1,0 +1,164 @@
+1. What is the problem with promise:
+
+   fetch("https://jsonplaceholder.typicode.com/users/1")
+   .then(function(response) {
+   return response.json();
+   })
+   .then(function(user) {
+   console.log(user.name);
+   })
+   .catch(function(error) {
+   console.log(error);
+   });
+
+   --> This is fine for simple cases. But when you have many steps,
+   it gets messy with many `.then()` chains.
+   It still doesn't read like normal code — top to bottom.
+
+**Async/Await was invented to solve this.**
+
+2.  What is Async/Await?
+
+    - Async/Await is NOT something new. It is just a
+      cleaner way to write the exact same Promise code.
+
+    - Same logic. Same behavior. Just better syntax.
+
+    Think of it like this:
+
+    Promise with .then() = the old way to write it
+    async/await = the new cleaner way to write it
+
+3.  async :
+
+    You put this in front of a function.
+
+    It means:
+
+    "This function contains asynchronous code. It will return a Promise."
+
+    async function getData() {
+    // async code goes here
+    }
+
+4.  await :
+
+    You put this in front of a Promise. It means:
+
+    "Wait HERE until this Promise is finished. Then give me the result."
+
+5.  Example :
+
+          async function getData() {
+          const result = await fetch("URL"); // wait here until fetch is done
+          }
+
+    Important rule — you can ONLY use await inside an async function. That's it. That's the only rule.
+
+6.  Difference with promise and await :
+
+    With Promises (.then):
+
+             fetch("https://jsonplaceholder.typicode.com/users/1")
+
+             .then(function(response) {
+                return response.json();
+             })
+
+             .then(function(user) {
+                console.log(user.name);
+             })
+
+             .catch(function(error) {
+                console.log(error);
+             });
+
+    with async/awit :
+
+         async function getUser() {
+         try {
+            const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+            const user = await response.json();
+            console.log(user.name);
+         } catch(error) {
+            console.log(error);
+         }
+         }
+
+         getUser();
+
+7.  Error handling — try/catch:
+
+    --> In Promises you used .catch(). In async/await you use try/catch.
+
+            try {
+            // try to run this code
+            } catch(error) {
+            // if anything goes wrong, catch it here
+            }
+
+    Think of it like:
+    try → "attempt this"
+    catch → "if it fails, handle it here"
+
+8.  Example with commets
+
+    async function functionName() {
+    try {
+
+         const response = await fetch("URL");  // wait for raw response
+         const data = await response.json();   // wait to open it
+         console.log(data);                    // use the data
+
+    } catch(error) {
+    console.log("Error:", error); // handle any error
+    }
+    }
+
+    functionName(); // don't forget to call the function!
+
+9.  Summmary:
+
+    async function getUser() {
+    console.log("A — inside function, before await");
+    const response = await fetch("URL"); // pauses HERE only
+    console.log("C — inside function, after await");
+    }
+
+    getUser();
+    console.log("B — outside function, runs immediately");
+
+### Output:
+
+A — inside function, before await
+B — outside function, runs immediately
+C — inside function, after await
+
+```
+
+See? `B` ran before `C` — because `await` only paused inside the function. The outside code kept running.
+
+---
+
+## Promise vs Async/Await — Full Comparison
+
+| | Promise (.then) | Async/Await |
+|---|---|---|
+| **Readability** | Chains going down | Reads like normal code |
+| **Error handling** | `.catch()` | `try/catch` |
+| **Same behavior?** | Yes | Yes |
+| **Which to use?** | Both work | Async/await preferred today |
+
+---
+
+## Summary — The only things you need to remember
+
+1. async   →   put before a function that has async code inside
+
+2. await   →   put before a Promise to wait for it to finish
+               can ONLY be used inside an async function
+
+3. try     →   attempt the code
+
+4. catch   →   if anything fails, handle it here
+```
