@@ -87,3 +87,39 @@
         export default App;
 
     --> first Body called will be called and then "useEffect called" will be called.
+
+6.  Example of useEffect():
+
+            //1st argument is call back function and 2nd is the dependency array.
+
+        useEffect(() => {
+            console.log("useEffect called");
+            fetchData();
+        }, []);
+
+        console.log("body called");
+
+        const fetchData = async () => {
+            const data = await fetch(
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            );
+
+            const json = await data.json();
+
+            console.log(json);
+        };
+
+7.  can we use the api call from local host to call apis like swiggy ?
+
+    --> No, it will give an error called CORS.
+
+    --> our browsers block the api call from 1 origin to different origin.
+
+    --> CORS : Cross Origin Resource Sharing Policys
+
+    --> When accessing swiggy api from local host, it will give a CORS error.
+
+8.  How to bypass CORS error?
+
+    --> Use extension call allow CORS by google chrome.
+    --> This extension can be turned on and off.
