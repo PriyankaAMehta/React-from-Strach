@@ -1,0 +1,42 @@
+1.  What is Teranary operator?
+
+    1.  Its a short hand for if, else statment written in single line.
+
+    2.  The word "ternary" means "made of 3 parts" — and that's exactly how it works.
+
+    3.  SYNTAX - condition ? "value if TRUE" : "value if FALSE"
+
+    4.  ? Question markMeans "if true, then..."
+        :ColonMeans "else / otherwise..."
+
+    5.  btnName === "Login" ? "Logout" : "Login"
+        ─────────────────── ──────── ───────
+        CONDITION----------IF TRUE----IF FALSE
+        (Part 1)-----------(Part 2)---(Part 3)
+
+    6.  Normal If else :
+
+        if (btnName === "Login") {
+        setBtnName("Logout");
+        } else {
+        setBtnName("Login");
+        }
+
+    7.  Understanding in words :
+
+        1.  btnName === "Login"
+
+                 This asks: *"Is the current button name equal to Login?"*
+                 The answer is either `true` or `false`.
+
+        2.  — If the answer is TRUE:
+
+                    ? "Logout"
+
+            The button is currently showing **"Login"**, so we switch it to **"Logout"**.
+
+        3.  — If the answer is FALSE:
+
+                    : "Login"
+
+            The button is currently showing "Logout", so we switch it back to "Login".

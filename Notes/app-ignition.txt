@@ -42,7 +42,9 @@ NPM
 2. NPM manages packages, so behind the scences its a node package manager but it does not stand for Node Package Manager.
 3. NPM is the standard repository for all the packages i.e almost all the packages are hosted in npm.
 
-For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project. 4. how to use npm in the project? - npm init
+For All the libraries , the utilites in the project , we can use NPM. It manages all the packages in the project. 
+
+4. how to use npm in the project? - npm init
 we can use npm init -y , it skips some things but we do not want to skip things so we do npm init. 5. On pressing enter after the command npm init , it asks the following questions >
 package name: (namaste-react)
 version: (1.0.0)
