@@ -3,10 +3,12 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mokData";
 import { useState } from "react";
 import { useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   //const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+
   //1st argument is call back function and 2nd is the dependency array.
   useEffect(() => {
     console.log("useEffect called");
@@ -25,10 +27,15 @@ const Body = () => {
     console.log(json);
 
     setListOfRestaurants(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      //json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
+  if (ListOfRestaurants.length === 0) {
+    //return <h1>Loading....</h1>;
+    return <Shimmer />;
+  }
   return (
     <div className="body">
       <div className="filter">

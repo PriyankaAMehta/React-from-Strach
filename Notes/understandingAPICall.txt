@@ -143,40 +143,104 @@ json
        
 
 4. THE COMPLETE FLOW in one picture
-🌐 API
-    │
-    │  json response comes back
-    ↓
-fetchData()
-    │
-    │  drills into json to find restaurants array
-    ↓
-setListOfRestaurants(restaurants)
-    │
-    │  state updates → React re-renders
-    ↓
-Body.js
-    │
-    │  .map() loops over 8 restaurants
-    │
-    ├──→ <RestaurantCard resData={Pizza Hut} />  → 🍕 on screen
-    ├──→ <RestaurantCard resData={KFC} />         → 🍗 on screen
-    ├──→ <RestaurantCard resData={Dominos} />     → 🍕 on screen
-    ... 8 times
-    ↓
-RestaurantCard
-    │
-    │  opens props bag
-    │  takes out name, rating, cuisines etc
-    ↓
-🖥️ Card painted on screen
+        🌐 API
+            │
+            │  json response comes back
+            ↓
+        fetchData()
+            │
+            │  drills into json to find restaurants array
+            ↓
+        setListOfRestaurants(restaurants)
+            │
+            │  state updates → React re-renders
+            ↓
+        Body.js
+            │
+            │  .map() loops over 8 restaurants
+            │
+            ├──→ <RestaurantCard resData={Pizza Hut} />  → 🍕 on screen
+            ├──→ <RestaurantCard resData={KFC} />         → 🍗 on screen
+            ├──→ <RestaurantCard resData={Dominos} />     → 🍕 on screen
+            ... 8 times
+            ↓
+        RestaurantCard
+            │
+            │  opens props bag
+            │  takes out name, rating, cuisines etc
+            ↓
+        🖥️ Card painted on screen
 
 
-### The Timeline
+        ### The Timeline
 
-0ms  → Page loads, Body renders with mock data
-1ms  → useEffect fires, calls fetchData()
-???ms → API responds (depends on internet speed)
-???ms → setListOfRestaurants updates state
-???ms → React re-renders with real data
-???ms → 8 RestaurantCards appear on screen ✅
+        0ms  → Page loads, Body renders with mock data
+        1ms  → useEffect fires, calls fetchData()
+        ???ms → API responds (depends on internet speed)
+        ???ms → setListOfRestaurants updates state
+        ???ms → React re-renders with real data
+        ???ms → 8 RestaurantCards appear on screen ✅
+
+5. Is writing this way a good pratice ? 
+
+    --> json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+
+    NO , we should always use optional chaining
+
+    json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+
+6. Now what happens to page is it loads few things and when it comes to body part 
+where there are restaturants , its first blank and then popullating with the 
+restaurant cards.
+
+so to improve this we can have 2 approaches :
+
+    1. have a loader or spinner until the data gets popullated on the page 
+
+        1.1. How do we add a loader?
+
+            --> in the useState, we have initialized ListOfRestaurants to [] 
+            a blank array.
+
+            --> i.e const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+
+            so instead of a blank array , we will have a loader.
+
+        1.2 if (ListOfRestaurants.length === 0){
+            return <h1> Loading....</h1> 
+            //we can have a fancy loader too.
+        }
+
+        1.3 But is showing the loader , a good way?
+         
+         --> No, so there is a newer approach to it.
+         --> It is called the shimmer UI 
+         --> initially there is loading and suddenly something pops on the screen is 
+         painful for the eyes and hence it is not a good approach.
+         --> So we use Shimmer UI.
+
+    2. SHIMMER UI 
+
+        1. what is shimmer UI?
+
+            --> Its a Fake UI that appears on the page when the api is taking
+                some time to load. 
+
+            --> fake UI means some boxes or skeleton that appers before the page loads.
+
+            --> Shimmer UI is a loading placeholder technique used in apps and websites to improve perceived performance while content is being fetched.
+
+            --> Instead of showing a blank screen or a spinning loader, 
+            shimmer UI displays a skeleton layout of the 
+            page — grayed-out placeholder shapes (rectangles, circles, lines) 
+            that mimic the structure of the actual content. A shimmering/glowing 
+            animation sweeps across these shapes, giving the impression that 
+            content is "loading in."
+
+            --> Common examples:
+
+                Facebook/LinkedIn feed cards loading
+                YouTube video thumbnails before they appear
+                Product cards on e-commerce sites
+
+            
