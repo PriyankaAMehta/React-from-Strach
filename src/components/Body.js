@@ -8,6 +8,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   //const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   //1st argument is call back function and 2nd is the dependency array.
   useEffect(() => {
@@ -44,6 +45,29 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filteredRestaurants = ListOfRestaurants.filter(
+                //(res) => res.info.name === searchText --> for this you have to write the exact name.
+                //so we need to include the search term so we do .include
+                (res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setListOfRestaurants(filteredRestaurants);
+            }}
+          >
+            Search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {

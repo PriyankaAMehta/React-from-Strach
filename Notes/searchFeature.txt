@@ -1,0 +1,79 @@
+1.  Sketleton of search :
+
+            <div className="search">
+                <input type="text" className="search-box" />
+                <button>Search</button>
+            </div>
+
+2.  What do we want to filter?
+
+    --> so onclick of the search button , we want to filter the restaurant cards and update the UI.
+
+        <div className="search">
+                <input type="text" className="search-box" />
+                <button onClick={()=>{
+                    ...Here we need to right the filter logic...
+
+                    //so we want to search the restaurant by writing the text..
+
+                        }}>Search</button>
+        </div>
+
+3.  How do we seacrh the restaurant by writing the text?
+
+    1. We need to capture the input box first i.e the value of input text box
+
+    2. We need to bind that value to the local variable of react i.e state variable.
+
+    3. we will create a useState variable.
+
+       const [seacrhText, setSearchText] = useState("");
+
+       initially the seacrhText is empty.
+
+    4. and We will also bind the value of the input text to the seacrhText variable
+
+    <input type="text" className="search-box" value={searchText} />
+
+    5.  now there is a problem :
+
+        you cannot write anything in the input box at this stage.
+
+        but why?
+        --> because we have initialized to an empty string so we wont be able to write anything in the search box.
+
+        what is the solution?
+        --> we can have a onChange event handler in the input.
+
+    6.  onChange event handler :
+
+        1.  this onChange function should also update the seacrh text.
+
+        2.  we will set the setSearchText(e.target.value)
+
+                 <input
+                     type="text"
+                     className="search-box"
+                     value={searchText}
+                     onChange={(e) => {
+                     setSearchText(e.target.value);
+                     }}
+                 />
+
+    7.  Finnaly we write the filter on seacrh button :
+
+        <button
+        onClick={() => {
+        const filteredRestaurants = ListOfRestaurants.filter(
+        //(res) => res.info.name === searchText --> for this you have to write the exact name.
+        //so we need to include the search term so we do .include
+        (res) => res.info.name.includes(searchText)
+        );
+        setListOfRestaurants(filteredRestaurants);
+        }}
+
+        >
+
+            Search
+
+        </button>

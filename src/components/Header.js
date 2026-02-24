@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  console.log("Header Rendered");
 
   return (
     <div className="header">
@@ -20,7 +21,8 @@ const Header = () => {
           <button
             className="login"
             onClick={() => {
-              setBtnName(btnName === "Login" ? "Logout" : "Login");
+              btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+              //setBtnName(btnName === "Login" ? "Logout" : "Login");
             }}
           >
             {btnName}

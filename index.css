@@ -43,7 +43,7 @@ cursor: pointer;
 }
 
 .filter-btn{
-    margin: 10px;
+    margin: 0px 10px;
     cursor: pointer;
 }
 
@@ -62,4 +62,11 @@ cursor: pointer;
 .login{
     padding: 0 20px;
     cursor: pointer;
+}
+
+.filter{
+    margin: 10px;
+    display: flex;
+   
+    
 }
