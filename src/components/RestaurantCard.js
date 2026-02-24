@@ -5,7 +5,7 @@ const RestaurantCard = (props) => {
   const { resData } = props;
 
   // destructring because we dont want to repeate resData.info again and again.
-  // ? optional chaining
+  // ? optional chaining : The ?. (optional chaining) is a safety net — if resData is undefined for any reason, it won't crash.
   // fom resData we will destructure cloudinaryImageId,name,cuisines, costForTwo,
   const { cloudinaryImageId, name, cuisines, costForTwo, avgRatingString } =
     resData?.info;

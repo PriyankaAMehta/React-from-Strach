@@ -134,8 +134,6 @@ A — inside function, before await
 B — outside function, runs immediately
 C — inside function, after await
 
-```
-
 See? `B` ran before `C` — because `await` only paused inside the function. The outside code kept running.
 
 ---
@@ -143,7 +141,7 @@ See? `B` ran before `C` — because `await` only paused inside the function. The
 ## Promise vs Async/Await — Full Comparison
 
 | | Promise (.then) | Async/Await |
-|---|---|---|
+
 | **Readability** | Chains going down | Reads like normal code |
 | **Error handling** | `.catch()` | `try/catch` |
 | **Same behavior?** | Yes | Yes |
@@ -153,12 +151,11 @@ See? `B` ran before `C` — because `await` only paused inside the function. The
 
 ## Summary — The only things you need to remember
 
-1. async   →   put before a function that has async code inside
+1. async → put before a function that has async code inside
 
-2. await   →   put before a Promise to wait for it to finish
-               can ONLY be used inside an async function
+2. await → put before a Promise to wait for it to finish
+   can ONLY be used inside an async function
 
-3. try     →   attempt the code
+3. try → attempt the code
 
-4. catch   →   if anything fails, handle it here
-```
+4. catch → if anything fails, handle it here
