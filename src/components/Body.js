@@ -5,8 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Body = () => {
-  const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
-
+  //const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
+  const [ListOfRestaurants, setListOfRestaurants] = useState([]);
   //1st argument is call back function and 2nd is the dependency array.
   useEffect(() => {
     console.log("useEffect called");
