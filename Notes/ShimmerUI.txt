@@ -1,4 +1,6 @@
-1. read the understand api call file from NOTES folder
+1. read the - understand api call file from NOTES folder
 
 2. Create a new component with any name but it will helpful if we name it 
     ShimmerUI component.
+
+3. add css to shimmer component and render it.

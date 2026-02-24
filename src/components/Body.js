@@ -32,11 +32,16 @@ const Body = () => {
     );
   };
 
-  if (ListOfRestaurants.length === 0) {
-    //return <h1>Loading....</h1>;
-    return <Shimmer />;
-  }
-  return (
+  //the following if is called as the conditional redering
+  //if (ListOfRestaurants.length === 0) {
+  //return <h1>Loading....</h1>;
+  //return <Shimmer />;
+  //}
+
+  //the above conditional redering can also be written as a ternary operator
+  return ListOfRestaurants.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button
