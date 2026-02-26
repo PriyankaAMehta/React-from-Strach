@@ -1,0 +1,24 @@
+1.  how is useEffect called ?
+
+    --> it is a neamed import imported via react i.e :
+    import {useEffect} from "react";
+
+2.  How to use it ?
+
+    --> it a function which takes 2 arguments : callback function and dependency array:
+
+        useEffect(()=>{}, [])
+
+3.  When is the useEffect called?
+
+        everytime a component is rendered , useEffect will be called.
+
+        so for example : if the useEffect is used in Header component, so wheever the header component is rendered , useEffect is called.
+
+4.  Dependency array.
+
+    1. If no dependency array - useEffect is called on every component render.
+
+    dependency array is not necessary , its optional.
+
+    2.  Empty dependency array - [] - is called on initial render and just once.

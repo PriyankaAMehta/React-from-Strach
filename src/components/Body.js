@@ -15,11 +15,11 @@ const Body = () => {
 
   //1st argument is call back function and 2nd is the dependency array.
   useEffect(() => {
-    console.log("useEffect called");
+    //console.log("useEffect called");
     fetchData();
   }, []);
 
-  console.log("body called");
+  //console.log("body called");
 
   const fetchData = async () => {
     const data = await fetch(
