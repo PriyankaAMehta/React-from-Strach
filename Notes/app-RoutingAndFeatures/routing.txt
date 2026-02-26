@@ -5,6 +5,7 @@
     1. we will use react router dom JS library from npm to use routing
     2. how to install in the project - npm install react-router-dom
     3. react router dom is added to package.json and package-lock.json website is reactrouter.com
+    4. react router dom is always putting up the updates.
 
 2.  How to use react router dom ?
 
@@ -61,3 +62,42 @@
                 v7 --> react-router already includes dom inside itself
 
             6.  Now check localhost1234/About , write this in URL and this will redirect to About Page.
+
+            7.  we can also have error page as follows using errorElement and assigning Error Component :
+
+                    const appRouter = createBrowserRouter([
+                                    {
+                                        path: "/",
+                                        element: <AppLayout />,
+                                        errorElement: <ErrorComponent />,
+                                    },
+                                    {
+                                        path: "/About",
+                                        element: <AboutComponent />,
+                                    },
+                                    {
+                                        path: "/Contact",
+                                        element: <Contact />,
+                                    },
+                    ]);
+
+                8.  react router dom gives an access to other important hook - useRouteError in case of error.
+
+                    1. In the Error Component, import the useReouteError hook.
+
+                       as : import {useRouteError} from "react-dom";
+
+                    2. Anything starting with use in react is a hook.
+
+                    3. useRouteError hook gives more info about the error.
+
+                    4. const err = useRouteError();
+                       console.log(err);
+
+                       on console , it will show object with error object.
+
+                9.  To display the error on the page , we can use the object data to show the error as :
+
+                          <h3>{err.status}: {err.statusText}
+                          </h3>
+                          <h3>{err.data}</h3>
