@@ -22,3 +22,7 @@
     dependency array is not necessary , its optional.
 
     2.  Empty dependency array - [] - is called on initial render and just once.
+
+    3.  If the dependency array has something -
+
+            ex [btnName] - then useEffect is called everytime btnName is updated.
