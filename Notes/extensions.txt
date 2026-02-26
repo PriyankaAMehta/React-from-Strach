@@ -1,11 +1,17 @@
-# VS Code extension 
+# VS Code extension
 
 1. Live Server
 2. ESLint
 3. Prettier
 4. write html:5 to have the basic html skeleton
 
-Chrome browsers
+# Chrome browsers
 
 1. Allow CORS - accessing the external api on local server
 2. JSON Viewer - to view the json file in prettier way on browser
+
+# How to send your live server to anybody with using api with cors
+
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+      Use corsproxy.io to resolve CORS issues when running on a local server, and share this proxied link with anyone who needs access to the project hosted on your localhost
