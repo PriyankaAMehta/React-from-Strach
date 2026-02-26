@@ -8,6 +8,9 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   //const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
   const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+  //create a copy of filteredRestaurants in setListOfRestaurants(filteredRestaurants);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
   const [searchText, setSearchText] = useState("");
 
   //1st argument is call back function and 2nd is the dependency array.
@@ -29,6 +32,9 @@ const Body = () => {
 
     setListOfRestaurants(
       //json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestaurants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
@@ -62,7 +68,8 @@ const Body = () => {
                 (res) =>
                   res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
-              setListOfRestaurants(filteredRestaurants);
+              //setListOfRestaurants(filteredRestaurants);
+              setFilteredRestaurants(filteredRestaurants);
             }}
           >
             Search
@@ -72,9 +79,9 @@ const Body = () => {
           className="filter-btn"
           onClick={() => {
             const filteredList = ListOfRestaurants.filter(
-              (res) => res.info.avgRating > 4.5
+              (res) => res.info.avgRating > 4.3
             );
-            console.log(ListOfRestaurants);
+
             setListOfRestaurants(filteredList);
           }}
         >
@@ -82,12 +89,12 @@ const Body = () => {
         </button>
       </div>
       <div className="res-container">
-        {ListOfRestaurants.map((restaurant) => (
+        {filteredRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant.info.id} resData={restaurant} />
         ))}
       </div>
     </div>
   );
 };
-
+// {ListOfRestaurants.map((restaurant) => instead now filter from the copy -- filteredRestaurants
 export default Body;

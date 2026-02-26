@@ -1,0 +1,11 @@
+# VS Code extension 
+
+1. Live Server
+2. ESLint
+3. Prettier
+4. write html:5 to have the basic html skeleton
+
+Chrome browsers
+
+1. Allow CORS - accessing the external api on local server
+2. JSON Viewer - to view the json file in prettier way on browser

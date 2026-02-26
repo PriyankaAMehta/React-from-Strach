@@ -1,0 +1,375 @@
+React useState & Copy Variable
+A Complete Step-by-Step Guide for Beginners
+PART 1 — Understanding useState Basics
+
+What is useState?
+useState is a React Hook that lets you store data that can change over time. When the data changes, React automatically updates the screen.
+
+Basic Syntax
+const [variable, setVariable] = useState(initialValue);
+// ──────── ─────────── ────────────
+// the data function to what it starts as
+// you READ UPDATE the data
+
+Your Code Has 3 State Variables
+const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+// starts as empty array — will hold ALL restaurants
+
+const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+// starts as empty array — will hold DISPLAYED restaurants
+
+const [searchText, setSearchText] = useState("");
+// starts as empty string — holds what user types
+
+PART 2 — The Origin: Why Was a Copy Created?
+
+Step 1 — The Beginning (Only One Variable)
+In the beginning, the code only had ONE state variable:
+const [ListOfRestaurants, setListOfRestaurants] = useState([]);
+And the display was:
+{ListOfRestaurants.map((restaurant) => (
+<RestaurantCard key={restaurant.info.id} resData={restaurant} />
+))}
+Everything was simple. One variable. Display it. Done.
+
+Step 2 — The Search Button Was Added
+When the search feature was added, the developer wrote this:
+<button onClick={() => {
+const filteredList = ListOfRestaurants.filter(
+(res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
+);
+setListOfRestaurants(filteredList); // WARNING: problem here
+}}>
+
+Step 3 — The Disaster
+This caused a serious problem. Here is exactly what happened:
+Before search: ListOfRestaurants = [20 restaurants]
+
+User types 'Coffee' and clicks Search...
+
+After search: ListOfRestaurants = [2 coffee restaurants]
+
+THE OTHER 18 RESTAURANTS ARE GONE FOREVER
+
+Now if the user searches for 'Pizza' next:
+// filter runs on ListOfRestaurants which only has 2 coffee restaurants
+// Pizza Hut was deleted in the first search
+// Result: filteredList = [] EMPTY — pizza restaurants are gone forever
+
+The Problem: One variable cannot protect original data AND display filtered results at the same time.
+
+Step 4 — The Developer's Realization
+The developer thought:
+• If I search once — original data is gone
+• If I search again — I am searching from 2 restaurants, not 20
+• If I want to reset — I cannot, the data is destroyed
+• I need to PROTECT the original data somehow
+
+Step 5 — The Solution: Add a Second Variable
+The developer added this brand new line:
+const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+This is just a new empty state variable — same syntax as any other useState. Nothing special about it. Its only job is to be displayed on screen while the master list stays safe.
+
+PART 3 — How the Copy is Actually Created
+
+The Simple Truth
+The 'copy' is NOT a special operation. It is simply putting the same data into two different variables. That is it.
+
+Where It Happens — Inside fetchData()
+const fetchData = async () => {
+
+// Step 1 — go to Swiggy API and get data
+const data = await fetch("https://www.swiggy.com/dapi/restaurants/...");
+
+// Step 2 — convert response to readable format
+const json = await data.json();
+
+// Step 3 — dig into JSON to find restaurant array
+// The ?. means: if this exists go deeper, if not return undefined
+const restaurants =
+json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+// Step 4 — PUT SAME DATA INTO BOTH VARIABLES
+// THIS IS WHERE THE COPY IS MADE
+setListOfRestaurants(restaurants); // original locked away
+setFilteredRestaurants(restaurants); // copy ready for display
+};
+
+What Happens After Step 4
+restaurants = [McDonalds, KFC, Coffee Shop, Pizza Hut ... 20 total]
+| |
+| |
+ListOfRestaurants = [20] filteredRestaurants = [20]
+(locked away safe) (displayed on screen)
+
+Real World Analogy — The Photocopy
+Imagine you have a Word document with 20 restaurant names. Your boss says: Find all coffee restaurants from this list.
+
+The WRONG Way
+You take the original document and start deleting every non-coffee restaurant. After deletion you only have 2. Now boss says find all pizza restaurants. You cannot. You deleted everything else. The original 20 are gone forever.
+
+The RIGHT Way
+You photocopy the original document first. Now you have 2 documents:
+Original document → locked in drawer, never touch it
+Photocopied document → work freely on this one
+You cross out non-coffee restaurants on the PHOTOCOPY only. Boss says find pizza restaurants — no problem. Go back to the original which still has all 20, photocopy again, cross out non-pizza ones.
+
+In Your Code
+ListOfRestaurants → Original document locked in drawer
+filteredRestaurants → Photocopy you work freely on
+
+setListOfRestaurants(restaurants); // put 20 in the drawer — ORIGINAL
+setFilteredRestaurants(restaurants); // put 20 on the desk — PHOTOCOPY
+
+PART 4 — Each Variable's Role
+
+Variable Role Changed During Search?
+ListOfRestaurants MASTER — stores all original data. Never displayed. NEVER changed during search
+filteredRestaurants COPY — displayed on screen. Changes freely. YES — updated on every search
+searchText Holds what user typed in search box. Updates every keystroke
+
+PART 5 — Step by Step: What Happens at Each Stage
+
+Stage 1 — App Opens
+3 empty state variables are created:
+
+ListOfRestaurants = [] (empty)
+filteredRestaurants = [] (empty)
+searchText = "" (empty)
+
+Screen is blank — no restaurants yet
+
+Stage 2 — useEffect Runs Once
+useEffect(() => {
+fetchData(); // go fetch data from API
+}, []); // [] means run ONCE when component first loads
+
+Stage 3 — API Returns Data, Copy is Created
+// API returns 20 restaurants
+// Both variables get the SAME data
+
+setListOfRestaurants(restaurants); // MASTER = [20 restaurants]
+setFilteredRestaurants(restaurants); // COPY = [20 restaurants]
+
+// THIS IS WHERE THE COPY IS MADE
+// Nothing fancy — just same data in two places
+
+Stage 4 — User Types in Search Box
+// Every keystroke fires onChange
+onChange={(e) => {
+setSearchText(e.target.value);
+}}
+
+User types "C" → searchText = "C"
+User types "Co" → searchText = "Co"
+User types "Coffee" → searchText = "Coffee"
+
+Stage 5 — User Clicks Search Button
+// Step A — filter FROM the master list (always has all 20)
+const filteredList = ListOfRestaurants.filter(
+(res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
+);
+
+// Step B — update ONLY the display copy
+setFilteredRestaurants(filteredList);
+
+// Result:
+ListOfRestaurants = [20 restaurants] UNTOUCHED
+filteredRestaurants = [2 coffee restaurants] UPDATED
+
+Stage 6 — User Searches Again ('Pizza')
+// filter runs on ListOfRestaurants AGAIN
+// It STILL has all 20 because nobody touched it
+
+const filteredList = ListOfRestaurants.filter(
+(res) => res.info.name.toLowerCase().includes("pizza")
+);
+
+setFilteredRestaurants(filteredList);
+
+ListOfRestaurants = [20 restaurants] STILL SAFE
+filteredRestaurants = [5 pizza restaurants] UPDATED AGAIN
+
+PART 6 — Full Trace With Real Restaurant Data
+
+Starting Data
+ListOfRestaurants = [
+{ info: { name: "McDonald's", avgRating: 4.2 } },
+{ info: { name: "KFC", avgRating: 4.5 } },
+{ info: { name: "Coffee Shop", avgRating: 4.7 } },
+{ info: { name: "Pizza Hut", avgRating: 4.1 } },
+{ info: { name: "Coffee House", avgRating: 4.8 } }
+]
+
+filteredRestaurants = same 5 restaurants (shown on screen)
+
+User Searches 'coffee'
+filter goes through each restaurant:
+
+res 1: "mcdonald's".includes("coffee") → false REMOVED
+res 2: "kfc".includes("coffee") → false REMOVED
+res 3: "coffee shop".includes("coffee") → true KEPT
+res 4: "pizza hut".includes("coffee") → false REMOVED
+res 5: "coffee house".includes("coffee")→ true KEPT
+
+filteredList = [Coffee Shop, Coffee House]
+
+setFilteredRestaurants([Coffee Shop, Coffee House])
+
+ListOfRestaurants = [5 restaurants] UNTOUCHED
+filteredRestaurants = [2 restaurants] screen shows 2
+
+User Clears and Searches 'pizza'
+// ListOfRestaurants STILL has all 5 — nobody touched it
+
+filter goes through each restaurant again:
+
+res 1: "mcdonald's".includes("pizza") → false REMOVED
+res 2: "kfc".includes("pizza") → false REMOVED
+res 3: "coffee shop".includes("pizza") → false REMOVED
+res 4: "pizza hut".includes("pizza") → true KEPT
+res 5: "coffee house".includes("pizza")→ false REMOVED
+
+filteredList = [Pizza Hut]
+
+setFilteredRestaurants([Pizza Hut])
+
+ListOfRestaurants = [5 restaurants] STILL SAFE
+filteredRestaurants = [1 restaurant] screen shows 1
+
+PART 7 — Why Display filteredRestaurants Not ListOfRestaurants
+
+The Display Code
+// CORRECT — shows filtered results on screen
+{filteredRestaurants.map((restaurant) => (
+<RestaurantCard key={restaurant.info.id} resData={restaurant} />
+))}
+
+What Happens With filteredRestaurants on Screen
+At start → filteredRestaurants = 20 → screen shows all 20
+After 'coffee' → filteredRestaurants = 2 → screen shows 2
+After 'pizza' → filteredRestaurants = 1 → screen shows 1
+After clear → filteredRestaurants = 20 → screen shows all 20 again
+
+What Would Happen if You Displayed ListOfRestaurants Instead
+// WRONG — search would have zero effect on screen
+{ListOfRestaurants.map((restaurant) => (
+<RestaurantCard key={restaurant.info.id} resData={restaurant} />
+))}
+
+At start → ListOfRestaurants = 20 → shows all 20
+After 'coffee' → ListOfRestaurants = 20 → STILL shows all 20
+Search has ZERO EFFECT on screen
+
+PART 8 — Complete Flow Diagram
+
+APP OPENS
+|
+| 3 empty state variables created
+|
+useEffect runs once
+|
+fetchData() calls Swiggy API
+|
+API returns 20 restaurants
+|
+|--- setListOfRestaurants([20]) MASTER filled
+|--- setFilteredRestaurants([20]) COPY filled <-- COPY CREATED HERE
+|
+Screen shows all 20 restaurants
+=========================================================
+USER TYPES 'coffee'
+|
+onChange fires every keystroke
+setSearchText('coffee')
+searchText = 'coffee'
+=========================================================
+USER CLICKS SEARCH
+|
+filter runs on ListOfRestaurants (has 20)
+|
+checks each restaurant with .includes('coffee')
+|
+filteredList = [2 coffee restaurants]
+|
+setFilteredRestaurants([2])
+|
+ListOfRestaurants = [20] NEVER TOUCHED
+filteredRestaurants = [2] UPDATED
+|
+Screen shows 2 restaurants
+=========================================================
+USER TYPES 'pizza' AND CLICKS SEARCH
+|
+filter runs on ListOfRestaurants (STILL has 20)
+|
+filteredList = [1 pizza restaurant]
+|
+setFilteredRestaurants([1])
+|
+ListOfRestaurants = [20] ALWAYS SAFE
+filteredRestaurants = [1] UPDATED AGAIN
+|
+Screen shows 1 restaurant
+
+PART 9 — The 5 Golden Rules
+
+RULE 1 — ListOfRestaurants is the MASTER. Never displayed directly on screen. Never changed during search. Always has ALL original restaurants.
+
+RULE 2 — filteredRestaurants is the DISPLAY COPY. Always shown on screen. Changes on every search. Gets its data from filtering the MASTER.
+
+RULE 3 — The COPY is created by putting the same API data into BOTH variables at the same time. setListOfRestaurants(data) and setFilteredRestaurants(data) with the same data.
+
+RULE 4 — Every search always filters FROM the master. ListOfRestaurants.filter(...). Never from filteredRestaurants.
+
+RULE 5 — setFilteredRestaurants() is called during search. setListOfRestaurants() is NEVER called during search. This is what keeps the master safe forever.
+
+PART 10 — Common Mistakes to Avoid
+
+Mistake 1 — Filtering from filteredRestaurants
+// WRONG — searching from copy
+const filteredList = filteredRestaurants.filter(...);
+
+// CORRECT — always search from master
+const filteredList = ListOfRestaurants.filter(...);
+
+Mistake 2 — Updating Master During Search
+// WRONG — destroys original data
+setListOfRestaurants(filteredList);
+
+// CORRECT — only update the display copy
+setFilteredRestaurants(filteredList);
+
+Mistake 3 — Displaying Master Instead of Copy
+// WRONG — search has no effect on screen
+{ListOfRestaurants.map((restaurant) => (...))}
+
+// CORRECT — display the copy
+{filteredRestaurants.map((restaurant) => (...))}
+
+Mistake 4 — Forgetting toLowerCase()
+// WRONG — case sensitive, user must type exact capital letters
+res.info.name.includes(searchText)
+
+// CORRECT — works regardless of what case user types
+res.info.name.toLowerCase().includes(searchText.toLowerCase())
+
+QUICK SUMMARY — Everything in One Place
+
+1. useState creates a state variable and a setter function.
+   The variable holds data. The setter updates it and re-renders the screen.
+
+2. Two state variables exist because one variable cannot do two jobs.
+   ListOfRestaurants protects original data. filteredRestaurants displays results.
+
+3. The copy is made by setting the same API data into both variables.
+   setListOfRestaurants(data) and setFilteredRestaurants(data) with identical data.
+
+4. Every search always reads from ListOfRestaurants (the master).
+   It always has all the original restaurants no matter how many times you search.
+
+5. Only filteredRestaurants changes during search.
+   setListOfRestaurants() is never called during search — this is what keeps the master safe.
+
+6. filteredRestaurants is always what gets displayed on screen.
+   Displaying ListOfRestaurants directly would make search have no visible effect.
