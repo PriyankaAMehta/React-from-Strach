@@ -1,0 +1,4 @@
+1. create useState variables at the start of the component.
+2.  Component names  should be starting with Capital letter - mandatory otherwise react will not treat it as component.
+3. variable names should start with small letters , use Camel case
+4. Do not use useState inside the conditions like if , for loop, or inside functions.

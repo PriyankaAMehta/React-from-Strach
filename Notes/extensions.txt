@@ -3,7 +3,6 @@
 1. Live Server
 2. ESLint
 3. Prettier
-4. write html:5 to have the basic html skeleton
 
 # Chrome browsers
 
@@ -15,3 +14,8 @@
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
       Use corsproxy.io to resolve CORS issues when running on a local server, and share this proxied link with anyone who needs access to the project hosted on your localhost
+
+# Shortcucts
+
+1. write html:5 to have the basic html skeleton
+2. write rafce in the vs and it will create a skeleton for component.

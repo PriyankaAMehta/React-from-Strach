@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import { createBrowserRouter, RouterProvider } from "react-router"; //creates routing configuration, configuration means it will define what will happen on a specific route
+import AboutComponent from "./components/About";
 
 // single {} means it accepts the JS expression i.e any JS value and to have JS object we use another {}.
 
@@ -13,6 +15,18 @@ const AppLayout = () => {
     </div>
   );
 };
+
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/About",
+    element: <AboutComponent />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);

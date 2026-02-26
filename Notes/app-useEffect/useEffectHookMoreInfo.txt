@@ -25,4 +25,4 @@
 
     3.  If the dependency array has something -
 
-            ex [btnName] - then useEffect is called everytime btnName is updated.
+            ex [btnName] - then useEffect is called everytime btnName is updated. i.e everytime the btnName changes, useEffect will be called.

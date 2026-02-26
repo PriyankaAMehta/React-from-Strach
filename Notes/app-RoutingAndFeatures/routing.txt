@@ -1,0 +1,63 @@
+# Routing in react
+
+1.  React Router Dom Library
+
+    1. we will use react router dom JS library from npm to use routing
+    2. how to install in the project - npm install react-router-dom
+    3. react router dom is added to package.json and package-lock.json website is reactrouter.com
+
+2.  How to use react router dom ?
+
+    1.  We need to create routing configuration. i.e whenever we are using routues , we should create routing configuration in App.js i.e the entry point.
+
+    2.  configuration means it will define what will happen on a specific route or path.
+
+    3.  go to app.js --> import createBrowserRouter from react.
+        --> import { createBrowserRouter } from "react-router-dom";
+
+    4.  Now create a routing configuration in the app.js as :
+
+        1.  const appRouter = createBrowserRouter()
+
+        2.  createBrowserRouter takes a array of paths as :
+
+                    const appRouter = createBrowserRouter([
+                    {
+                    path: "/", --> home page
+                    element: <AppLayout />
+                    },
+                    {path: "/about,
+                    },
+                    ];)
+
+        3.  just creating routing configuration will not work, we need to render it on the page.
+
+            1.  to render the appRouter, we need to import RouterProvider from react-router-dom
+
+                --> import { createBrowserRouter, RouterProvider } from "react-router-dom"
+
+            2.  RouterProivder is a component given by react-router-dom.
+
+            3.  initially we rendered our app through :
+
+                root.render(<AppLayout />);
+
+            4.  Now we will render using the RouterProvider compoent passing appRouter as :
+
+                    root.render(<RouterProvider router={appRouter} />);
+
+            5.  now everything should work , but in some cases it may give error
+
+                --> so change the react-router-dom to react-router
+
+                    // REMOVE THIS
+                    import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+                    // REPLACE WITH THIS
+                    import { createBrowserRouter, RouterProvider } from "react-router";
+
+                --> v6 --> react-router-dom is a SEPARATE package --> use this for version6 -- import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+                v7 --> react-router already includes dom inside itself
+
+            6.  Now check localhost1234/About , write this in URL and this will redirect to About Page.
