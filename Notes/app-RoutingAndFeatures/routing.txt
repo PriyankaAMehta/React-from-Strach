@@ -125,7 +125,7 @@
        },
        ]);
 
-    2. The react-router gives a component <Outlet /> which takes all the childrens and displays compoenets according to the path..
+    2. The react-router gives a component <Outlet /> which takes all the childrens and displays compoenets according to the path.
 
        const AppLayout = () => {
        return (
@@ -160,3 +160,35 @@
        const root = ReactDOM.createRoot(document.getElementById("root"));
 
        root.render(<RouterProvider router={appRouter} />);
+
+4.  In the <Header /> component :
+
+    1. we can have the href and just redirect to ./About. It will work but we should not use it because, it will refresh th ewhole page.
+
+    <li>
+            <a href="/About">About Us</a>
+    </li>
+
+    2. When you click an <a href="/About"> link, the browser handles the navigation.
+       Here's what the browser does:
+       User clicks href="/About"
+       → Browser makes a NEW request to the server
+       → Entire page destroys (HTML, CSS, JS, React — everything gone)
+       → Page reloads from scratch
+       → React boots up again from zero
+       This defeats the entire purpose of React Router. You lose:
+
+       Your app's current state
+       The "keep parent alive" benefit we just discussed
+       A smooth, instant transition
+
+5.  <Link /> component is given by the react router , which will make the routing without reloading the whole page.
+
+    --> <Link to="/About">About Us</Link>
+
+    --> In LInk, we use to instead of href
+
+6.  There are 2 types of routing that exist on web :
+
+    1. server side routing
+    2. client side routing
