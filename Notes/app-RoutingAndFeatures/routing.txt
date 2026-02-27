@@ -101,3 +101,62 @@
                           <h3>{err.status}: {err.statusText}
                           </h3>
                           <h3>{err.data}</h3>
+
+3.  How to display all the components with header and footer from the "/" i.e homepage i.e AppLayout component.
+
+    1. Step 1: define childerens for <AppLayout />
+
+       const appRouter = createBrowserRouter([
+       {
+       path: "/",
+       element: <AppLayout />,
+       children: [
+       { path: "/", element: <Body /> },
+       {
+       path: "/About",
+       element: <AboutComponent />,
+       },
+       {
+       path: "/Contact",
+       element: <Contact />,
+       },
+       ],
+       errorElement: <ErrorComponent />,
+       },
+       ]);
+
+    2. The react-router gives a component <Outlet /> which takes all the childrens and displays compoenets according to the path..
+
+       const AppLayout = () => {
+       return (
+       <div className="app">
+       <Header />
+       <Outlet />
+       </div>
+       );
+       };
+       {
+       /\*_ This is a comment in JSX_/
+       }
+       const appRouter = createBrowserRouter([
+       {
+       path: "/",
+       element: <AppLayout />,
+       children: [
+       { path: "/", element: <Body /> },
+       {
+       path: "/About",
+       element: <AboutComponent />,
+       },
+       {
+       path: "/Contact",
+       element: <Contact />,
+       },
+       ],
+       errorElement: <ErrorComponent />,
+       },
+       ]);
+
+       const root = ReactDOM.createRoot(document.getElementById("root"));
+
+       root.render(<RouterProvider router={appRouter} />);

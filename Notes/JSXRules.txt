@@ -3,3 +3,5 @@
 2. JSX is always uses camelCase.
 
 3. All the JS is written inside {} in JSX.
+
+4. comments in JSX : {/** */}
