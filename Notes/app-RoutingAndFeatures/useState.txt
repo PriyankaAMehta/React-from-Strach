@@ -1,0 +1,50 @@
+1.  useState gives you two things:
+
+            const [resInfo, setResInfo] = useState(null);
+            //      ↑              ↑
+            //   THE DATA      THE FUNCTION
+            //  (read it)      (update it)
+
+2.  They have completely different purposes:
+
+        resInfo --> What it is ---> A variable that holds your data
+                    use it to ----> Read/display the data
+
+        SetResInfo --> What it is ---> A function that updates the variable
+                    use it to ----> Change the data
+
+3.  Steps:
+
+        // 1. Initially, resInfo = null
+        const [resInfo, setResInfo] = useState(null);
+
+        // 2. Fetch runs, you get json back
+        const json = await data.json();
+
+        // 3. You STORE json.data INTO resInfo by calling setResInfo()
+        setResInfo(json.data);
+        //  ↑ This is a function call, NOT storage itself
+        //  After this runs → resInfo NOW equals json.data
+
+        // 4. Now you READ from resInfo to display it
+        resInfo?.cards[2]?.card?.card?.info.name
+
+4.  Why can't we just do resInfo = json.data directly?
+
+    1.  Because resInfo is a React state variable, not a regular variable.
+
+    2.  If you try to directly assign:
+
+            resInfo = json.data; // ❌ This won't work
+
+            Two problems:
+
+                    1. const variables can't be reassigned (it's declared with const)
+                    2. Even if it could — React wouldn't know the data changed, so it won't re-render your component. Your UI stays blank.
+
+    3.  setResInfo(json.data) // ✅
+
+            When you call `setResInfo`, it does **two things internally:**
+
+                1. Updates the value of `resInfo`
+                2. **Tells React "hey, data changed → re-render the component"**

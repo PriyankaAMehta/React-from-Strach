@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router"; //cr
 import AboutComponent from "./components/About";
 import Contact from "./components/Contact";
 import ErrorComponent from "./components/ErrorComponent";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 // single {} means it accepts the JS expression i.e any JS value and to have JS object we use another {}.
 
@@ -33,6 +34,11 @@ const appRouter = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact />,
+      },
+      {
+        //:resId is dynamic : given by react router
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
       },
     ],
     errorElement: <ErrorComponent />,
