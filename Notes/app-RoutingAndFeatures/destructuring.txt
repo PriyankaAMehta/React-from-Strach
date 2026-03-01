@@ -1,0 +1,37 @@
+1.  Before destructuring existed, to pull values out of an object you'd write:
+
+    const person = { name: "John", age: 25, city: "Delhi" };
+
+        const name = person.name;
+        const age  = person.age;
+        const city = person.city;
+
+2.  Destructuring does the same thing in 1 line :
+
+        const {name, age, city} = person;
+
+3.  Object destructing :
+
+    const person = { name: "John", age: 25, city: "Delhi" };
+
+        const name = person.name;
+        const age  = person.age;
+        const city = person.city;
+
+4.  Rule 1 : Variable name must match the key
+
+    const person = { name: "John", age: 25 };
+
+    const { name } = person; // ✅ matches key "name"
+    const { xyz } = person; // ✅ works but xyz = undefined (key doesn't exist)
+
+5.  Rule 2 — You can rename while destructuring
+
+    const person = { name: "John" };
+
+         //         key : new variable name
+
+    const { name : myName } = person;
+
+    console.log(myName); // "John"
+    console.log(name); // ❌ ReferenceError — "name" was never created

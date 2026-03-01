@@ -1,0 +1,17 @@
+1. What is Destructuring?
+
+        const { name } = someObject;
+
+        This is just a shorthand for:
+        const name = someObject.name;
+
+2. What can you destructure?
+
+        You can only destructure objects or arrays — things that actually exist.
+
+        const { name } = { name: "Burger King" }; // ✅ Works
+        const { name } = {};                       // ✅ Works (name = undefined)
+        const { name } = null;                     // ❌ CRASH
+        const { name } = undefined;               // ❌ CRASH
+
+    null and undefined cannot be destructured.
