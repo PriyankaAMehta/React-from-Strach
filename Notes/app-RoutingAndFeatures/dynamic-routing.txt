@@ -1,17 +1,9 @@
-1. What is Destructuring?
+1. Yes, you can change it — but it must match whatever you named the parameter in your route definition.
 
-        const { name } = someObject;
+        The name comes from the route, e.g. in App.js:
 
-        This is just a shorthand for:
-        const name = someObject.name;
+                <Route path="/restaurant/:resId" element={<RestaurantMenu />} />
 
-2. What can you destructure?
+        The :resId part defines the name. So useParams() must destructure with the same name:
 
-        You can only destructure objects or arrays — things that actually exist.
-
-        const { name } = { name: "Burger King" }; // ✅ Works
-        const { name } = {};                       // ✅ Works (name = undefined)
-        const { name } = null;                     // ❌ CRASH
-        const { name } = undefined;               // ❌ CRASH
-
-    null and undefined cannot be destructured.
+                const { resId } = useParams(); // ✅ matches :resId
