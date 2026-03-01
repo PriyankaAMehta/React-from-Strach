@@ -4,6 +4,7 @@ import resList from "../utils/mokData";
 import { useState } from "react";
 import { useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   //const [ListOfRestaurants, setListOfRestaurants] = useState(resList);
@@ -88,9 +89,15 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
+      {/** In JSX, the key should be on th eparent JSX, i.e Link and not in Restaurant Card */}
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>
