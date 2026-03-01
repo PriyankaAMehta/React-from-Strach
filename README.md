@@ -1,4 +1,5 @@
 steps to start : Each commit is designed to learn step by step towards REACT
+There are several branches, one branch is designed for each of the react concepts.
 
 Step 1 : Basic to create a GIT repo for learning.
 
