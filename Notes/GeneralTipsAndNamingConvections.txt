@@ -3,5 +3,5 @@
 3. variable names should start with small letters , use Camel case
 4. Do not use useState inside the conditions like if , for loop, or inside functions.
 5. whenever there is hook in react , it always start with use. ex : useState --> variables, useEffect.  --> fectching and loading data,
- useParams --> displaying dynamic urls.
+ useParams --> displaying dynamic urls, useRouteError()
 6. Whever there is a component, It always starts with Capital letter : <Link> --component given by react-router
