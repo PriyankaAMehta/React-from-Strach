@@ -1,0 +1,42 @@
+1. What is functional componenet --> its normal JS function.
+
+2. What is class component --> its JS Class.
+
+3. JavaScript Class Syntax :
+
+   1. Use the keyword class to create a class.
+
+   2. Always add a method named constructor():
+
+   3. class ClassName {
+      constructor() { ... }
+      }
+
+4. How to write class component in react?
+
+   1. class Component_Name extends React.Component{
+
+   }
+
+   2. extends React.Component tells react that it is a component.
+
+   3. It has a render() method returns the JSX. This JSX is displayed on the screen.
+
+   4. How are props passed in class?
+
+   --> props are passed by the constructor method of the class
+
+   5. Example of normal class in JS
+
+      class Car {
+      constructor(name, year) {
+      this.name = name;
+      this.year = year;
+      }
+      }
+
+      1. The example above creates a class named "Car".
+
+      2. The class has two initial properties: "name" and "year".
+
+      3. A JavaScript class is not an object. It is a template for JavaScript objects.

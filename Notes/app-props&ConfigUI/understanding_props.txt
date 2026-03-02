@@ -49,6 +49,8 @@
         <Card name="Alice" age={25} />
         // Props: name, age
 
+    --> props are nothing but attributes and hence not , separated
+
 4.  React takes all passed properties and wraps them inside a single object
 
     {name : Alice ,
