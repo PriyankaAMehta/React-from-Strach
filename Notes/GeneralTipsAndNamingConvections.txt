@@ -5,3 +5,4 @@
 5. whenever there is hook in react , it always start with use. ex : useState --> variables, useEffect.  --> fectching and loading data,
  useParams --> displaying dynamic urls, useRouteError()
 6. Whever there is a component, It always starts with Capital letter : <Link> --component given by react-router
+7. Never update the state variables directly in react.
