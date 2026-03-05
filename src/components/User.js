@@ -5,6 +5,10 @@ const User = ({ name, location, contact }) => {
   const [count, setCount] = useState(0);
   const [count2] = useState(1);
 
+  //why do we useEffect ? --> API call, why ? we want to first render the component and then make api call
+
+  useEffect(() => {}, []);
+
   return (
     <div className="user-card">
       <h2>Name : {name}</h2>
