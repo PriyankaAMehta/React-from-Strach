@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import UserClass from "./UserClass";
+//import UserClass from "./UserClass";
 
 // some people write Component instead of React.Component and import {Componenent} from "react"
 class AboutComponent extends Component {

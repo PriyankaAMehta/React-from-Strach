@@ -24,10 +24,13 @@ class UserClass extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    console.log("componentDidUpdate was called");
+  }
   render() {
     console.log("child render called");
     const { name } = this.state.userInfo;
-    debugger;
+    //debugger;
     return (
       <div className="user-card">
         <h2>Name : {name}</h2>
