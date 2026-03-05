@@ -11,6 +11,11 @@ class UserClass extends React.Component {
     console.log("child constructor called");
   }
 
+  //1st the constructor is called, then render is called and then componentDidMount is called.
+  //react gives this componentDidMount Method. this is called when the component is mounted on the page as name suggest
+  componentDidMount() {
+    console.log("child componentDidMount is called");
+  }
   render() {
     console.log("child render called");
     const { name } = this.props;
